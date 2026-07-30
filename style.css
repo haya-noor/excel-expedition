@@ -1,3 +1,8 @@
+:root {
+  --teal: #069494;
+  --teal-soft: #e6f5f5;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -8,74 +13,80 @@ body {
   display: grid;
   place-items: center;
   padding: 24px;
-  color: #173326;
-  background: #f5f8f3;
+  color: var(--teal);
+  background: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
 main {
-  width: min(100%, 680px);
+  width: min(100%, 560px);
 }
 
-.logo {
+.brand-mark {
   display: block;
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 28px;
-  filter: drop-shadow(0 8px 12px rgb(16 124 65 / 18%));
+  width: clamp(150px, 36vw, 210px);
+  height: auto;
+  margin: 0 auto 18px;
 }
 
-.logo-body {
-  fill: #107c41;
-}
-
-.logo-screen {
-  fill: #e3f1e8;
-}
-
-.logo-line {
+.brand-frame {
   fill: none;
-  stroke: #107c41;
-  stroke-linecap: round;
-  stroke-width: 2;
+  stroke: var(--teal);
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+  stroke-width: 4;
 }
 
-.logo-key {
-  fill: white;
+.brand-initial {
+  fill: var(--teal);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 66px;
+  font-weight: 300;
 }
 
-.logo-key-accent {
-  fill: #bce5ca;
-}
-
-h1 {
+.wordmark {
   margin: 0;
-  font-size: clamp(44px, 10vw, 76px);
-  line-height: 1;
-  letter-spacing: -0.05em;
+  font-weight: 300;
+  line-height: 1.25;
+  text-transform: uppercase;
 }
 
-h1 span {
-  color: #107c41;
+.wordmark span {
+  display: block;
 }
 
-p {
-  margin: 24px auto 0;
-  color: #58675f;
-  font-size: clamp(17px, 3vw, 21px);
-  line-height: 1.6;
+.wordmark-main {
+  padding-left: 0.32em;
+  font-size: clamp(30px, 7vw, 44px);
+  letter-spacing: 0.32em;
+}
+
+.wordmark-sub {
+  padding-left: 0.42em;
+  font-size: clamp(18px, 4.5vw, 28px);
+  letter-spacing: 0.42em;
 }
 
 .status {
   display: inline-block;
-  margin-top: 38px;
+  margin-top: 42px;
   padding: 9px 14px;
-  color: #107c41;
-  background: #e3f1e8;
+  color: var(--teal);
+  background: var(--teal-soft);
   border-radius: 999px;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+@media (max-width: 420px) {
+  .wordmark-main {
+    letter-spacing: 0.24em;
+  }
+
+  .wordmark-sub {
+    letter-spacing: 0.3em;
+  }
 }
