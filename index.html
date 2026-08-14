@@ -10,17 +10,53 @@
 
   <body>
     <header class="site-header">
-      <a href="./" aria-label="Excel Expeditions home">
-        <img class="site-logo" src="logo.svg?v=5" alt="" />
-      </a>
+      <div class="header-inner">
+        <a class="header-brand" href="#home" aria-label="Excel Expeditions home">
+          <img class="site-logo" src="logo.svg?v=5" alt="" />
+          <span>Excel Expeditions</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
     </header>
 
-    <main>
-      <h1 class="wordmark">
-        <span class="wordmark-main">Excel</span>
-        <span class="wordmark-sub">Expeditions</span>
-      </h1>
-      <div class="status">Coming soon</div>
+    <main id="home">
+      <div class="hero-content">
+        <h1 class="wordmark">
+          <span class="wordmark-main">Excel</span>
+          <span class="wordmark-sub">Expeditions</span>
+        </h1>
+        <div class="status">Coming soon</div>
+      </div>
     </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <section id="about">
+          <h2>Excel Expeditions</h2>
+          <p>Accounting information and services designed to help you move forward with confidence.</p>
+        </section>
+
+        <section id="services">
+          <h2>Information</h2>
+          <p>Our complete website and service information are coming soon.</p>
+        </section>
+
+        <section id="contact">
+          <h2>Contact</h2>
+          <p>Contact details will be available when the website launches.</p>
+        </section>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Excel Expeditions</p>
+        <a href="#home">Back to top</a>
+      </div>
+    </footer>
   </body>
 </html>
