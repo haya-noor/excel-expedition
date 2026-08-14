@@ -19,27 +19,48 @@ body {
   text-align: center;
 }
 
+.site-header {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+}
+
+.site-header a,
+.site-logo {
+  display: block;
+}
+
+.site-logo {
+  width: 76px;
+  height: auto;
+}
+
 main {
   width: min(100%, 600px);
 }
 
-.logo {
-  display: block;
-  width: min(100%, 520px);
-  height: auto;
-  margin: 0 auto;
+.wordmark {
+  margin: 0;
+  font-family: "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.25;
+  text-transform: uppercase;
 }
 
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+.wordmark span {
+  display: block;
+}
+
+.wordmark-main {
+  padding-left: 0.36em;
+  font-size: clamp(44px, 8vw, 72px);
+  letter-spacing: 0.36em;
+}
+
+.wordmark-sub {
+  padding-left: 0.46em;
+  font-size: clamp(24px, 5vw, 42px);
+  letter-spacing: 0.46em;
 }
 
 .status {
@@ -53,4 +74,15 @@ main {
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    top: 16px;
+    left: 16px;
+  }
+
+  .site-logo {
+    width: 60px;
+  }
 }

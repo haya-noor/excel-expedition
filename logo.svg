@@ -1,35 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 520" role="img" aria-labelledby="title description">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 150" role="img" aria-labelledby="title description">
   <title id="title">Excel Expeditions</title>
-  <desc id="description">An open square containing the letter E above the words Excel Expeditions.</desc>
+  <desc id="description">The letter E centered inside an open rectangular frame.</desc>
 
   <g fill="none" stroke="#069494" stroke-linecap="square">
-    <path d="M229 172V74H411V236H320" stroke-width="5" />
-    <path d="M309 132V178M309 132H331M309 155H328M309 178H331" stroke-width="4" />
-  </g>
-
-  <g
-    fill="#069494"
-    font-family="'Arial Narrow', 'Roboto Condensed', Arial, sans-serif"
-    font-weight="300"
-    text-anchor="middle"
-  >
-    <text
-      x="0"
-      y="335"
-      font-size="80"
-      letter-spacing="34"
-      transform="translate(320 0) scale(.7 1)"
-    >
-      EXCEL
-    </text>
-    <text
-      x="0"
-      y="405"
-      font-size="46"
-      letter-spacing="27"
-      transform="translate(320 0) scale(.7 1)"
-    >
-      EXPEDITIONS
-    </text>
+    <path d="M20 95V18H100V132H60" stroke-width="3" />
+    <path d="M52 55V95M52 55H68M52 75H66M52 95H68" stroke-width="3" />
   </g>
 </svg>
