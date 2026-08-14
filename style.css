@@ -33,10 +33,10 @@ body {
 }
 
 .header-inner {
-  width: min(100%, 1200px);
+  width: 100%;
   min-height: 88px;
   margin: 0 auto;
-  padding: 10px 24px;
+  padding: 10px 32px 10px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -106,33 +106,8 @@ main {
   width: min(100%, 600px);
 }
 
-.wordmark {
-  margin: 0;
-  font-family: "Arial Narrow", "Roboto Condensed", Arial, sans-serif;
-  font-weight: 300;
-  line-height: 1.25;
-  text-transform: uppercase;
-}
-
-.wordmark span {
-  display: block;
-}
-
-.wordmark-main {
-  padding-left: 0.36em;
-  font-size: clamp(44px, 8vw, 72px);
-  letter-spacing: 0.36em;
-}
-
-.wordmark-sub {
-  padding-left: 0.46em;
-  font-size: clamp(24px, 5vw, 42px);
-  letter-spacing: 0.46em;
-}
-
 .status {
   display: inline-block;
-  margin-top: 20px;
   padding: 9px 14px;
   color: var(--teal);
   background: var(--teal-soft);
@@ -198,7 +173,7 @@ main {
 @media (max-width: 700px) {
   .header-inner {
     min-height: 72px;
-    padding: 8px 16px;
+    padding: 8px 16px 8px 0;
     gap: 18px;
   }
 

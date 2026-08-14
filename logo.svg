@@ -3,8 +3,8 @@
   <desc id="description">Excel Expedition logo with a framed letter E and a two-line wordmark.</desc>
 
   <g fill="none" stroke="#069494" stroke-linecap="square">
-    <path d="M62 238V42H302V318H184" stroke-width="8" />
-    <path d="M140 124V248M140 124H240M140 186H222M140 248H240" stroke-width="8" />
+    <path d="M44 222V24H270V336H155" stroke-width="7" />
+    <path d="M112 98V260M112 98H207M112 179H195M112 260H209" stroke-width="8" />
   </g>
 
   <g fill="#069494" font-family="Arial Narrow, Roboto Condensed, Arial, sans-serif" font-weight="300">
