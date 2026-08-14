@@ -169,6 +169,17 @@ main {
   color: #ffffff;
   text-decoration: none;
 }
+@media (min-width: 701px) {
+  body {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  main {
+    min-height: 0;
+  }
+}
+
 
 @media (max-width: 700px) {
   .header-inner {
