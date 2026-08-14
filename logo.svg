@@ -1,9 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 150" role="img" aria-labelledby="title description">
-  <title id="title">Excel Expeditions</title>
-  <desc id="description">The letter E centered inside an open rectangular frame.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 360" role="img" aria-labelledby="title description">
+  <title id="title">Excel Expedition</title>
+  <desc id="description">Excel Expedition logo with a framed letter E and a two-line wordmark.</desc>
 
   <g fill="none" stroke="#069494" stroke-linecap="square">
-    <path d="M20 95V18H100V132H60" stroke-width="3" />
-    <path d="M52 55V95M52 55H68M52 75H66M52 95H68" stroke-width="3" />
+    <path d="M62 238V42H302V318H184" stroke-width="8" />
+    <path d="M140 124V248M140 124H240M140 186H222M140 248H240" stroke-width="8" />
+  </g>
+
+  <g fill="#069494" font-family="Arial Narrow, Roboto Condensed, Arial, sans-serif" font-weight="300">
+    <text x="380" y="158" font-size="92" letter-spacing="34" textLength="440" lengthAdjust="spacingAndGlyphs">EXCEL</text>
+    <text x="380" y="272" font-size="68" letter-spacing="25" textLength="650" lengthAdjust="spacingAndGlyphs">EXPEDITION</text>
   </g>
 </svg>

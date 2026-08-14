@@ -57,10 +57,8 @@ body {
 
 .site-logo {
   display: block;
-}
-
-.site-logo {
-  width: 52px;
+  width: 300px;
+  max-width: 100%;
   height: auto;
 }
 
@@ -205,11 +203,7 @@ main {
   }
 
   .site-logo {
-    width: 44px;
-  }
-
-  .header-brand span {
-    display: none;
+    width: 190px;
   }
 
   .main-nav {
@@ -237,6 +231,10 @@ main {
 }
 
 @media (max-width: 440px) {
+  .site-logo {
+    width: 145px;
+  }
+
   .main-nav {
     gap: 12px;
   }
