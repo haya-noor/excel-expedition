@@ -33,8 +33,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css?v=6" />
-    <script src="app.js?v=1" defer></script>
+    <link rel="stylesheet" href="style.css?v=8" />
+    <script src="app.js?v=3" defer></script>
   </head>
 
   <body>
@@ -137,26 +137,26 @@
         </div>
 
         <div class="hero-content">
-          <p class="eyebrow hero-eyebrow" data-reveal>
+          <p class="eyebrow hero-eyebrow hero-in" style="--in: 1">
             <span class="eyebrow-dot" aria-hidden="true"></span>
             10+ years of U.S. accounting expertise
           </p>
 
-          <h1 data-reveal>
+          <h1 class="hero-title">
             Your Trusted U.S. Accounting &amp;
             <span class="text-gradient">Bookkeeping Partner</span>
           </h1>
 
-          <p class="hero-subtitle" data-reveal>
+          <p class="hero-subtitle hero-in" style="--in: 9">
             Accurate books. Smarter reporting. Better financial decisions.
           </p>
 
-          <p class="hero-description" data-reveal>
+          <p class="hero-description hero-in" style="--in: 10">
             Excel Expedition provides professional bookkeeping, accounting, payroll, sales tax,
             compliance, and financial reporting services to businesses across the United States.
           </p>
 
-          <div class="hero-actions" data-reveal>
+          <div class="hero-actions hero-in" style="--in: 11">
             <button class="btn btn-primary btn-lg" type="button">Schedule a Consultation</button>
             <button class="btn btn-secondary btn-lg" type="button">Explore Our Services</button>
           </div>
@@ -238,7 +238,7 @@
           </div>
 
           <div class="approach-grid">
-            <div class="approach-card" data-reveal>
+            <div class="approach-card" data-reveal="left">
               <h3>Our Approach</h3>
               <ul class="approach-list">
                 <li>
@@ -264,7 +264,7 @@
               </ul>
             </div>
 
-            <aside class="mission-card" data-reveal>
+            <aside class="mission-card" data-reveal="right">
               <span class="mission-quote" aria-hidden="true">&ldquo;</span>
               <h3>Our Mission</h3>
               <p>
@@ -273,15 +273,15 @@
               </p>
               <dl class="mission-stats">
                 <div>
-                  <dt>10+</dt>
+                  <dt data-count="10" data-suffix="+">10+</dt>
                   <dd>Years</dd>
                 </div>
                 <div>
-                  <dt>60+</dt>
+                  <dt data-count="60" data-suffix="+">60+</dt>
                   <dd>Clients</dd>
                 </div>
                 <div>
-                  <dt>40+</dt>
+                  <dt data-count="40" data-suffix="+">40+</dt>
                   <dd>States</dd>
                 </div>
               </dl>
@@ -305,62 +305,62 @@
           </div>
 
           <div class="services-grid" data-reveal-group>
-            <article class="service-card" data-reveal>
+            <article class="service-card" data-reveal="scale">
               <span class="service-index" aria-hidden="true">01</span>
               <h3>Regular Bookkeeping</h3>
               <p>Maintain accurate and organized financial records with consistent recording, categorization, and review of your business transactions.</p>
             </article>
-            <article class="service-card" data-reveal>
+            <article class="service-card" data-reveal="scale">
               <span class="service-index" aria-hidden="true">02</span>
               <h3>Invoicing</h3>
               <p>Keep your billing processes organized with accurate invoice management and properly recorded customer transactions.</p>
             </article>
-            <article class="service-card" data-reveal>
+            <article class="service-card" data-reveal="scale">
               <span class="service-index" aria-hidden="true">03</span>
               <h3>Accounts Receivable</h3>
               <p>Improve visibility over money owed to your business. We help maintain customer accounts, track receivables, and monitor outstanding balances.</p>
             </article>
-            <article class="service-card" data-reveal>
+            <article class="service-card" data-reveal="scale">
               <span class="service-index" aria-hidden="true">04</span>
               <h3>Accounts Payable</h3>
               <p>Stay organized with vendor bills, business expenses, and outgoing payments while ensuring transactions are properly recorded.</p>
             </article>
-            <article class="service-card" data-reveal>
+            <article class="service-card" data-reveal="scale">
               <span class="service-index" aria-hidden="true">05</span>
               <h3>Account Reconciliation</h3>
               <p>From routine reconciliations to complex reconciliation projects, we compare your accounting records with financial statements to identify discrepancies and maintain accurate books.</p>
             </article>
-            <article class="service-card" data-reveal>
+            <article class="service-card" data-reveal="scale">
               <span class="service-index" aria-hidden="true">06</span>
               <h3>Bookkeeping Cleanup</h3>
               <p>We identify discrepancies, correct errors, organize transactions, and bring your financial records back into shape.</p>
             </article>
-            <article class="service-card" data-reveal>
+            <article class="service-card" data-reveal="scale">
               <span class="service-index" aria-hidden="true">07</span>
               <h3>Payroll</h3>
               <p>We support recurring payroll processes, payroll setup, statutory deductions, and payroll-related compliance requirements.</p>
             </article>
-            <article class="service-card" data-reveal>
+            <article class="service-card" data-reveal="scale">
               <span class="service-index" aria-hidden="true">08</span>
               <h3>Month-End Closing</h3>
               <p>Keep your accounting cycle on track with month-end reconciliations, adjustments, reviews, and closing procedures.</p>
             </article>
-            <article class="service-card" data-reveal>
+            <article class="service-card" data-reveal="scale">
               <span class="service-index" aria-hidden="true">09</span>
               <h3>Financial Reporting</h3>
               <p>Get meaningful financial information through customized monthly reports and management reporting designed around your business needs.</p>
             </article>
-            <article class="service-card" data-reveal>
+            <article class="service-card" data-reveal="scale">
               <span class="service-index" aria-hidden="true">10</span>
               <h3>Sales Tax &amp; Compliance</h3>
               <p>Multi-State Sales Tax Support Across 40+ States. We provide support with registrations, filings, nexus determination, compliance, notices, and ongoing compliance support.</p>
             </article>
-            <article class="service-card" data-reveal>
+            <article class="service-card" data-reveal="scale">
               <span class="service-index" aria-hidden="true">11</span>
               <h3>Data Cleanup &amp; Migration</h3>
               <p>Moving to a new accounting system or dealing with years of disorganized financial data? We can help with data cleanup, restructuring, and accounting system migrations.</p>
             </article>
-            <article class="service-card" data-reveal>
+            <article class="service-card" data-reveal="scale">
               <span class="service-index" aria-hidden="true">12</span>
               <h3>Additional Services</h3>
               <p>Chart of Accounts customization, Inventory Tracking, Depreciation Schedules, and Budgeting &amp; Financial Modeling to support better planning and decision-making.</p>
@@ -425,56 +425,56 @@
           </div>
 
           <div class="industries-grid" data-reveal-group>
-            <article class="industry-card" data-reveal>
+            <article class="industry-card" data-reveal="scale">
               <span class="industry-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1.2 12H7.2L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
               </span>
               <h3>E-Commerce</h3>
               <p>Bookkeeping, payment integrations, sales tax, inventory tracking, AR/AP, and financial reporting for online businesses.</p>
             </article>
-            <article class="industry-card" data-reveal>
+            <article class="industry-card" data-reveal="scale">
               <span class="industry-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5.5A2.5 2.5 0 0 1 11.5 3h1A2.5 2.5 0 0 1 15 5.5V7"/><path d="M3 12.5h18"/></svg>
               </span>
               <h3>Professional Services</h3>
               <p>Accounting support for consultants, agencies, freelancers, and service-based businesses.</p>
             </article>
-            <article class="industry-card" data-reveal>
+            <article class="industry-card" data-reveal="scale">
               <span class="industry-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 11 8.5-7 8.5 7"/><path d="M6 9.8V20h12V9.8"/><path d="M10 20v-5.2h4V20"/></svg>
               </span>
               <h3>Real Estate</h3>
               <p>Bookkeeping and financial reporting for real estate professionals and property-related businesses.</p>
             </article>
-            <article class="industry-card" data-reveal>
+            <article class="industry-card" data-reveal="scale">
               <span class="industry-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18.5a4.2 4.2 0 0 1 .6-8.36A5.6 5.6 0 0 1 18.2 10.6 3.7 3.7 0 0 1 17.6 18.5H7Z"/></svg>
               </span>
               <h3>Technology &amp; SaaS</h3>
               <p>Accounting support for technology companies, SaaS businesses, and growing startups.</p>
             </article>
-            <article class="industry-card" data-reveal>
+            <article class="industry-card" data-reveal="scale">
               <span class="industry-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5h7.2l8.3 8.3-7.2 7.2L4 11.7V4.5Z"/><circle cx="8.6" cy="9.1" r="1.3"/></svg>
               </span>
               <h3>Retail</h3>
               <p>Sales, inventory, expenses, payables, receivables, and sales tax support.</p>
             </article>
-            <article class="industry-card" data-reveal>
+            <article class="industry-card" data-reveal="scale">
               <span class="industry-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 17.5h17"/><path d="M6 17.5v-3.2a6 6 0 0 1 12 0v3.2"/><path d="M10 8.8V5.5h4v3.3"/></svg>
               </span>
               <h3>Construction &amp; Contracting</h3>
               <p>Accounting support for contractors and project-based businesses.</p>
             </article>
-            <article class="industry-card" data-reveal>
+            <article class="industry-card" data-reveal="scale">
               <span class="industry-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12.5h3.6l2-4.6 3.2 9.2 2.2-4.6H21"/></svg>
               </span>
               <h3>Healthcare</h3>
               <p>Bookkeeping and financial management support for healthcare businesses and practices.</p>
             </article>
-            <article class="industry-card" data-reveal>
+            <article class="industry-card" data-reveal="scale">
               <span class="industry-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17.5 5.5-5.6 3.3 3.3L20 7.6"/><path d="M15.2 7.6H20v4.8"/></svg>
               </span>
@@ -652,7 +652,7 @@
           </div>
 
           <div class="careers-content">
-            <div class="why-join" data-reveal>
+            <div class="why-join" data-reveal="left">
               <h3>Why Join Us?</h3>
               <ul class="benefits-list">
                 <li><strong>Professional Growth</strong> — Develop your accounting expertise while working with U.S. businesses across different industries.</li>
@@ -662,7 +662,7 @@
               </ul>
             </div>
 
-            <div class="areas-hiring" data-reveal>
+            <div class="areas-hiring" data-reveal="right">
               <h3>Areas We Hire For</h3>
               <div class="hiring-tags">
                 <span class="tag">Accounting</span>
@@ -749,14 +749,14 @@
       <!-- Closing CTA -->
       <section class="cta-band">
         <div class="container cta-inner">
-          <div class="cta-copy" data-reveal>
+          <div class="cta-copy" data-reveal="left">
             <h2>Ready for books you can rely on?</h2>
             <p>
               Schedule a consultation and we'll review your current setup, identify gaps, and
               outline how we can support your financial operations.
             </p>
           </div>
-          <div class="cta-actions" data-reveal>
+          <div class="cta-actions" data-reveal="right">
             <button class="btn btn-light btn-lg" type="button">Schedule a Consultation</button>
             <button class="btn btn-ghost btn-lg" type="button">Explore Our Services</button>
           </div>

@@ -59,6 +59,86 @@
   });
 
   /* ----------------------------------------------------------------------
+     Hero headline: wrap each word so it can rise out of its own clip box.
+     Walks text nodes only, so inline markup (the gradient span) is preserved.
+     ---------------------------------------------------------------------- */
+
+  var heroTitle = document.querySelector(".hero-title");
+
+  if (heroTitle && !reduceMotion) {
+    (function () {
+      var index = 0;
+
+      function clipBox(child) {
+        var outer = document.createElement("span");
+        outer.className = "w";
+        var inner = document.createElement("span");
+        inner.className = "wi";
+        inner.style.setProperty("--w", index++);
+        outer.appendChild(inner);
+        inner.appendChild(child);
+        return outer;
+      }
+
+      // Copy the list first: each wrap replaces a node in place.
+      Array.prototype.slice.call(heroTitle.childNodes).forEach(function (child) {
+        // Element children are wrapped whole rather than split. The gradient
+        // span paints via background-clip:text, and that clip only picks up
+        // glyphs the element renders itself — splitting its text into
+        // inline-block spans would leave it painting nothing at all.
+        if (child.nodeType === 1) {
+          heroTitle.replaceChild(clipBox(child.cloneNode(true)), child);
+          return;
+        }
+
+        if (child.nodeType !== 3 || !child.nodeValue.trim()) return;
+
+        var frag = document.createDocumentFragment();
+
+        child.nodeValue.split(/(\s+)/).forEach(function (part) {
+          if (!part) return;
+          if (!part.trim()) {
+            frag.appendChild(document.createTextNode(part));
+            return;
+          }
+          frag.appendChild(clipBox(document.createTextNode(part)));
+        });
+
+        heroTitle.replaceChild(frag, child);
+      });
+    })();
+  }
+
+  /* ----------------------------------------------------------------------
+     Card spotlight — track the pointer so the highlight follows the cursor.
+     Hover-capable pointers only; touch would just leave a stuck glow.
+     ---------------------------------------------------------------------- */
+
+  if (!reduceMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    var spotCards = document.querySelectorAll(
+      ".service-card, .feature-item, .industry-card, .tech-category"
+    );
+
+    spotCards.forEach(function (card) {
+      var frame = null;
+
+      card.addEventListener(
+        "pointermove",
+        function (event) {
+          if (frame) return;
+          frame = window.requestAnimationFrame(function () {
+            frame = null;
+            var box = card.getBoundingClientRect();
+            card.style.setProperty("--mx", event.clientX - box.left + "px");
+            card.style.setProperty("--my", event.clientY - box.top + "px");
+          });
+        },
+        { passive: true }
+      );
+    });
+  }
+
+  /* ----------------------------------------------------------------------
      Sticky header state + scroll progress
      ---------------------------------------------------------------------- */
 

@@ -296,10 +296,28 @@ section p {
 }
 
 .text-gradient {
-  background: linear-gradient(120deg, var(--teal-500) 0%, var(--teal-600) 55%, var(--teal-400) 100%);
+  background: linear-gradient(
+    100deg,
+    var(--teal-600) 0%,
+    var(--teal-400) 30%,
+    var(--teal-600) 55%,
+    var(--teal-500) 100%
+  );
+  background-size: 220% 100%;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  animation: gradient-drift 9s var(--ease) infinite;
+}
+
+@keyframes gradient-drift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 /* --------------------------------------------------------------------------
@@ -524,6 +542,36 @@ section[id] {
 .main-nav a:focus-visible::after,
 .main-nav a.is-active::after {
   transform: scaleX(1);
+}
+
+/* Nav settles in behind the logo draw-in. */
+@media (min-width: 1001px) {
+  .main-nav a {
+    animation: header-in 620ms var(--ease-out) both;
+  }
+
+  .main-nav a:nth-child(1) { animation-delay: 620ms; }
+  .main-nav a:nth-child(2) { animation-delay: 680ms; }
+  .main-nav a:nth-child(3) { animation-delay: 740ms; }
+  .main-nav a:nth-child(4) { animation-delay: 800ms; }
+  .main-nav a:nth-child(5) { animation-delay: 860ms; }
+  .main-nav a:nth-child(6) { animation-delay: 920ms; }
+  .main-nav a:nth-child(7) { animation-delay: 980ms; }
+}
+
+.header-actions {
+  animation: header-in 620ms var(--ease-out) 1s both;
+}
+
+@keyframes header-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Theme toggle ----------------------------------------------------------- */
@@ -935,6 +983,55 @@ section[id] {
   font-weight: 800;
   line-height: 1.06;
   letter-spacing: -0.035em;
+}
+
+/* Hero entrance ---------------------------------------------------------
+   The headline's words are wrapped by app.js; each rises out of its own
+   clipping box. Everything else fades up on a shared step, ordered by --in.
+   All of it is plain CSS animation, so it plays even if the observer never
+   runs. */
+
+.hero-title .w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  /* Extends the clip box below the baseline so descenders are not shaved off
+     by the tight display line-height; the negative margin keeps layout put. */
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+
+.hero-title .wi {
+  display: inline-block;
+  animation: word-up 900ms var(--ease-out) both;
+  animation-delay: calc(120ms + var(--w, 0) * 55ms);
+}
+
+@keyframes word-up {
+  from {
+    opacity: 0;
+    transform: translateY(105%) rotate(2deg);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero-in {
+  animation: hero-fade 800ms var(--ease-out) both;
+  animation-delay: calc(var(--in, 0) * 70ms);
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .hero-subtitle {
@@ -1453,6 +1550,8 @@ section[id] {
     border-color 300ms var(--ease);
 }
 
+/* Connector draws itself left-to-right as each step reveals, so the row reads
+   as a sequence rather than four separate cards. */
 .process-step::after {
   position: absolute;
   top: 54px;
@@ -1461,6 +1560,14 @@ section[id] {
   height: 2px;
   content: "";
   background: linear-gradient(90deg, var(--teal-300), var(--line));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 520ms var(--ease-out) 260ms;
+}
+
+.js .process-step.is-visible::after,
+html:not(.js) .process-step::after {
+  transform: scaleX(1);
 }
 
 .process-step:nth-child(4n)::after,
@@ -1980,9 +2087,76 @@ section[id] {
   transition: opacity 640ms var(--ease-out), transform 640ms var(--ease-out);
 }
 
+/* Directional variants give two-column sections a sense of assembly instead of
+   every block arriving from the same direction. */
+.js [data-reveal="left"] {
+  transform: translateX(-32px);
+}
+
+.js [data-reveal="right"] {
+  transform: translateX(32px);
+}
+
+.js [data-reveal="scale"] {
+  transform: translateY(18px) scale(0.97);
+}
+
 .js [data-reveal].is-visible {
   opacity: 1;
   transform: none;
+}
+
+/* --------------------------------------------------------------------------
+   Card spotlight
+   A soft highlight that tracks the pointer. --mx/--my are written by app.js
+   on hover-capable devices; the fallback centre keeps it harmless otherwise.
+   isolation + z-index:-1 puts the glow above the card's background but below
+   its text without needing any extra markup.
+   -------------------------------------------------------------------------- */
+
+.service-card,
+.feature-item,
+.industry-card,
+.tech-category {
+  position: relative;
+  isolation: isolate;
+}
+
+.service-card::after,
+.feature-item::after,
+.industry-card::after,
+.tech-category::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  content: "";
+  border-radius: inherit;
+  background: radial-gradient(
+    320px circle at var(--mx, 50%) var(--my, 50%),
+    rgb(6 148 148 / 10%),
+    transparent 62%
+  );
+  opacity: 0;
+  transition: opacity 340ms var(--ease);
+  pointer-events: none;
+}
+
+[data-theme="dark"] .service-card::after,
+[data-theme="dark"] .feature-item::after,
+[data-theme="dark"] .industry-card::after,
+[data-theme="dark"] .tech-category::after {
+  background: radial-gradient(
+    320px circle at var(--mx, 50%) var(--my, 50%),
+    rgb(43 179 177 / 16%),
+    transparent 62%
+  );
+}
+
+.service-card:hover::after,
+.feature-item:hover::after,
+.industry-card:hover::after,
+.tech-category:hover::after {
+  opacity: 1;
 }
 
 /* --------------------------------------------------------------------------
@@ -2189,8 +2363,10 @@ section[id] {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
     scroll-behavior: auto !important;
   }
 
