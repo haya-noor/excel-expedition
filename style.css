@@ -120,11 +120,16 @@
 }
 
 :root {
-  /* Radii */
-  --r-sm: 8px;
-  --r-md: 14px;
-  --r-lg: 20px;
-  --r-xl: 28px;
+  /* Type */
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-display: "Source Serif 4", "Iowan Old Style", Georgia, "Times New Roman", serif;
+
+  /* Radii — deliberately tight. Squared corners and hairline rules read as
+     ledger/stationery rather than the fully rounded pill-and-card look. */
+  --r-sm: 4px;
+  --r-md: 6px;
+  --r-lg: 8px;
+  --r-xl: 10px;
   --r-full: 999px;
 
   /* Motion */
@@ -134,7 +139,6 @@
 
   /* Layout */
   --header-h: 84px;
-  --ticker-h: 34px;
   --gutter: clamp(20px, 4vw, 48px);
   --section-y: clamp(64px, 8vw, 120px);
 }
@@ -157,7 +161,7 @@ body {
   flex-direction: column;
   color: var(--ink-700);
   background: var(--surface);
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: var(--font-body);
   font-size: 16px;
   line-height: 1.7;
   font-feature-settings: "cv02", "cv03", "cv04", "ss01";
@@ -205,26 +209,30 @@ svg {
    Typography
    -------------------------------------------------------------------------- */
 
+/* Display face. A transitional serif against the Inter body is what gives the
+   site its own voice — considered and established rather than startup-sans. */
 h1,
 h2,
 h3 {
   color: var(--teal-900);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.015em;
   text-wrap: balance;
 }
 
 section h2 {
   margin: 0 0 18px;
-  font-size: clamp(1.75rem, 1.2rem + 1.9vw, 2.6rem);
-  line-height: 1.15;
+  font-size: clamp(1.85rem, 1.2rem + 2.1vw, 2.85rem);
+  line-height: 1.12;
 }
 
 section h3 {
   margin: 0 0 10px;
   color: var(--teal-800);
-  font-size: 1.0625rem;
-  font-weight: 650;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
   line-height: 1.35;
 }
 
@@ -248,10 +256,9 @@ section p {
 }
 
 .eyebrow::before {
-  width: 20px;
-  height: 2px;
+  width: 22px;
+  height: 1px;
   content: "";
-  border-radius: var(--r-full);
   background: var(--teal-500);
 }
 
@@ -269,11 +276,10 @@ section p {
 
 .rule {
   display: block;
-  width: 64px;
-  height: 3px;
+  width: 52px;
+  height: 2px;
   margin: 0 0 24px;
-  border-radius: var(--r-full);
-  background: linear-gradient(90deg, var(--teal-500), var(--teal-300));
+  background: var(--teal-500);
 }
 
 .center .rule {
@@ -355,7 +361,7 @@ main > section {
 }
 
 section[id] {
-  scroll-margin-top: calc(var(--header-h) + var(--ticker-h) + 16px);
+  scroll-margin-top: calc(var(--header-h) + 20px);
 }
 
 .section-head {
@@ -504,9 +510,12 @@ section[id] {
   gap: clamp(12px, 1.6vw, 26px);
 }
 
+/* Active state is a tinted chip rather than an underline bar. */
 .main-nav a {
   position: relative;
-  padding: 8px 2px;
+  z-index: 0;
+  padding: 7px 12px;
+  border-radius: var(--r-sm);
   color: var(--ink-600);
   font-size: 0.9375rem;
   font-weight: 500;
@@ -515,21 +524,20 @@ section[id] {
   transition: color 200ms var(--ease);
 }
 
-.main-nav a::after {
+.main-nav a::before {
   position: absolute;
-  right: 0;
-  bottom: -2px;
-  left: 0;
-  height: 2px;
+  inset: 0;
+  z-index: -1;
   content: "";
-  border-radius: var(--r-full);
-  background: var(--teal-500);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 260ms var(--ease-out);
+  border-radius: inherit;
+  background: var(--teal-100);
+  opacity: 0;
+  transform: scale(0.92);
+  transition: opacity 220ms var(--ease), transform 300ms var(--spring);
 }
 
 .main-nav a:hover,
+.main-nav a:focus-visible,
 .main-nav a.is-active {
   color: var(--teal-600);
 }
@@ -538,10 +546,11 @@ section[id] {
   font-weight: 600;
 }
 
-.main-nav a:hover::after,
-.main-nav a:focus-visible::after,
-.main-nav a.is-active::after {
-  transform: scaleX(1);
+.main-nav a:hover::before,
+.main-nav a:focus-visible::before,
+.main-nav a.is-active::before {
+  opacity: 1;
+  transform: none;
 }
 
 /* Nav settles in behind the logo draw-in. */
@@ -696,60 +705,6 @@ section[id] {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* Ticker ----------------------------------------------------------------- */
-
-.ticker {
-  height: var(--ticker-h);
-  border-top: 1px solid var(--line);
-  background: var(--surface-2);
-  overflow: hidden;
-}
-
-.ticker-track {
-  display: flex;
-  width: max-content;
-  animation: ticker-scroll 52s linear infinite;
-}
-
-.ticker:hover .ticker-track {
-  animation-play-state: paused;
-}
-
-.ticker-list {
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.ticker-list li {
-  display: flex;
-  align-items: center;
-  height: var(--ticker-h);
-  color: var(--ink-500);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
-.ticker-list li::after {
-  width: 4px;
-  height: 4px;
-  margin-inline: 26px;
-  content: "";
-  border-radius: 50%;
-  background: var(--teal-400);
-}
-
-@keyframes ticker-scroll {
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 /* Scroll progress -------------------------------------------------------- */
 
 .scroll-progress {
@@ -778,9 +733,9 @@ section[id] {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  padding: 13px 26px;
+  padding: 13px 24px;
   border: 1px solid transparent;
-  border-radius: var(--r-full);
+  border-radius: var(--r-md);
   font: inherit;
   font-size: 0.9375rem;
   font-weight: 600;
@@ -887,12 +842,24 @@ section[id] {
   position: relative;
   display: grid;
   place-items: center;
-  min-height: min(84svh, 720px);
-  padding-block: clamp(72px, 10vw, 120px);
+  min-height: min(84svh, 760px);
+  padding-block: clamp(64px, 8vw, 104px);
   padding-inline: var(--gutter);
   background: linear-gradient(170deg, var(--teal-50) 0%, var(--surface) 62%);
   overflow: hidden;
   isolation: isolate;
+}
+
+/* Asymmetric split: the pitch reads left, the deliverables panel anchors the
+   right. Left-aligned rather than centred, which is what makes the hero feel
+   like a firm's page instead of a product landing page. */
+.hero-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(32px, 5vw, 72px);
+  align-items: center;
+  width: min(100%, 1200px);
+  margin: 0 auto;
 }
 
 .hero-bg {
@@ -965,24 +932,24 @@ section[id] {
 }
 
 .hero-content {
-  width: min(100%, 780px);
-  text-align: center;
+  width: min(100%, 640px);
+  text-align: left;
 }
 
 .hero-eyebrow {
-  padding: 8px 18px;
+  padding: 7px 14px;
   border: 1px solid var(--teal-200);
-  border-radius: var(--r-full);
+  border-radius: var(--r-sm);
   background: var(--glass);
-  box-shadow: var(--shadow-xs);
 }
 
 .hero-content h1 {
-  margin: 0 0 20px;
-  font-size: clamp(2.25rem, 1.2rem + 4.4vw, 4rem);
-  font-weight: 800;
-  line-height: 1.06;
-  letter-spacing: -0.035em;
+  margin: 0 0 18px;
+  font-size: clamp(2.1rem, 1.3rem + 2.9vw, 3.4rem);
+  font-weight: 700;
+  /* Serifs need far less negative tracking than a grotesque at display size. */
+  letter-spacing: -0.018em;
+  line-height: 1.12;
 }
 
 /* Hero entrance ---------------------------------------------------------
@@ -1035,15 +1002,16 @@ section[id] {
 }
 
 .hero-subtitle {
+  max-width: 44ch;
   margin: 0 0 18px;
   color: var(--teal-600);
-  font-size: clamp(1.0625rem, 0.9rem + 0.7vw, 1.4rem);
+  font-size: clamp(1rem, 0.9rem + 0.45vw, 1.2rem);
   font-weight: 600;
 }
 
 .hero-description {
-  max-width: 620px;
-  margin: 0 auto 36px;
+  max-width: 560px;
+  margin: 0 0 36px;
   color: var(--ink-600);
   font-size: 1.0625rem;
 }
@@ -1051,8 +1019,68 @@ section[id] {
 .hero-actions {
   display: flex;
   gap: 14px;
-  justify-content: center;
   flex-wrap: wrap;
+}
+
+/* Hero panel ------------------------------------------------------------- */
+
+.hero-panel {
+  position: relative;
+  padding: clamp(26px, 2.6vw, 34px);
+  border: 1px solid var(--line-strong);
+  border-top: 3px solid var(--teal-500);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+}
+
+.panel-label {
+  margin: 0 0 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--teal-600);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.panel-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.panel-list li {
+  position: relative;
+  padding: 11px 0 11px 30px;
+  color: var(--ink-700);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.panel-list li + li {
+  border-top: 1px solid var(--line);
+}
+
+.panel-list li::before {
+  position: absolute;
+  top: 15px;
+  left: 2px;
+  width: 14px;
+  height: 8px;
+  content: "";
+  border-left: 2px solid var(--teal-500);
+  border-bottom: 2px solid var(--teal-500);
+  transform: rotate(-45deg);
+}
+
+.panel-foot {
+  margin: 20px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-500);
+  font-size: 0.8125rem;
 }
 
 .scroll-cue {
@@ -1132,8 +1160,9 @@ section[id] {
 
 .trust-figure {
   color: var(--band-fg);
-  font-size: clamp(1.75rem, 1.3rem + 1.4vw, 2.4rem);
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 1.3rem + 1.6vw, 2.7rem);
+  font-weight: 600;
   line-height: 1;
   letter-spacing: -0.03em;
   font-variant-numeric: tabular-nums;
@@ -1289,8 +1318,9 @@ section[id] {
 
 .mission-stats dt {
   color: var(--band-fg);
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
   letter-spacing: -0.03em;
 }
 
@@ -1354,9 +1384,10 @@ section[id] {
 .service-index {
   display: block;
   margin-bottom: 14px;
-  color: var(--teal-300);
-  font-size: 0.875rem;
-  font-weight: 800;
+  color: var(--teal-400);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
   letter-spacing: 0.14em;
   font-variant-numeric: tabular-nums;
   transition: color 300ms var(--ease);
@@ -1584,10 +1615,11 @@ html:not(.js) .process-step::after {
 .step-number {
   display: grid;
   place-items: center;
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   margin-bottom: 18px;
-  border-radius: 50%;
+  border-radius: var(--r-sm);
+  font-family: var(--font-display);
   background: linear-gradient(140deg, var(--teal-500), var(--teal-600));
   color: #fff;
   font-size: 0.9375rem;
@@ -2023,8 +2055,9 @@ html:not(.js) .process-step::after {
 
 .footer-watermark span {
   color: transparent;
+  font-family: var(--font-display);
   font-size: clamp(2.5rem, 11vw, 9rem);
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: -0.04em;
   line-height: 0.9;
   white-space: nowrap;
@@ -2224,11 +2257,12 @@ html:not(.js) .process-step::after {
 
   .main-nav a {
     padding: 14px 4px;
+    border-radius: 0;
     border-bottom: 1px solid var(--line);
     font-size: 1rem;
   }
 
-  .main-nav a::after {
+  .main-nav a::before {
     display: none;
   }
 
@@ -2254,6 +2288,17 @@ html:not(.js) .process-step::after {
 
   .trust-item:nth-child(3n + 1) {
     border-left: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+  }
+
+  .hero-content {
+    width: 100%;
   }
 }
 
@@ -2382,9 +2427,5 @@ html:not(.js) .process-step::after {
 
   .logo-word {
     opacity: 1;
-  }
-
-  .ticker-track {
-    animation: none;
   }
 }
