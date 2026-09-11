@@ -1083,102 +1083,73 @@ section[id] {
   font-size: 0.8125rem;
 }
 
-.scroll-cue {
-  position: absolute;
-  bottom: 26px;
-  left: 50%;
-  width: 26px;
-  height: 42px;
-  border: 2px solid var(--teal-300);
-  border-radius: var(--r-full);
-  transform: translateX(-50%);
-  transition: border-color 200ms var(--ease);
-}
-
-.scroll-cue:hover {
-  border-color: var(--teal-500);
-}
-
-.scroll-cue span {
-  position: absolute;
-  top: 8px;
-  left: 50%;
-  width: 4px;
-  height: 8px;
-  border-radius: var(--r-full);
-  background: var(--teal-500);
-  transform: translateX(-50%);
-  animation: cue 1.9s var(--ease) infinite;
-}
-
-@keyframes cue {
-  0%,
-  100% {
-    opacity: 0;
-    transform: translate(-50%, 0);
-  }
-  35% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 0;
-    transform: translate(-50%, 14px);
-  }
-}
 
 /* --------------------------------------------------------------------------
    Trust bar
    -------------------------------------------------------------------------- */
 
 .trust-bar {
-  padding-block: clamp(36px, 4.6vw, 56px);
+  padding-block: clamp(44px, 5vw, 68px);
   padding-inline: var(--gutter);
-  background: var(--band-gradient);
-  color: var(--band-fg);
+  border-block: 1px solid var(--line);
+  background: var(--surface-2);
 }
 
 .trust-content {
-  width: min(100%, 1200px);
+  width: min(100%, 860px);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .trust-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
-  padding-inline: 12px;
+  gap: 10px;
+  padding-inline: 16px;
   text-align: center;
 }
 
 .trust-item + .trust-item {
-  border-left: 1px solid var(--band-line);
+  border-left: 1px solid var(--line);
 }
 
 .trust-figure {
-  color: var(--band-fg);
+  color: var(--teal-600);
   font-family: var(--font-display);
-  font-size: clamp(1.9rem, 1.3rem + 1.6vw, 2.7rem);
+  font-size: clamp(2.4rem, 1.6rem + 2.4vw, 3.5rem);
   font-weight: 600;
   line-height: 1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   font-variant-numeric: tabular-nums;
 }
 
-.trust-mark {
-  color: var(--band-accent);
-}
-
 .trust-label {
-  color: var(--band-fg-dim);
+  color: var(--ink-500);
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   line-height: 1.4;
   text-transform: uppercase;
+}
+
+.trust-note {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: min(100%, 860px);
+  margin: clamp(28px, 3.5vw, 40px) auto 0;
+  padding-top: clamp(22px, 3vw, 30px);
+  border-top: 1px solid var(--line);
+  color: var(--ink-500);
+  font-size: 0.8125rem;
+  text-align: center;
+}
+
+.trust-note span {
+  color: var(--teal-400);
 }
 
 /* --------------------------------------------------------------------------
@@ -2280,17 +2251,6 @@ html:not(.js) .process-step::after {
   }
 }
 
-@media (max-width: 860px) {
-  .trust-content {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 26px 12px;
-  }
-
-  .trust-item:nth-child(3n + 1) {
-    border-left: 0;
-  }
-}
-
 @media (max-width: 900px) {
   .hero-inner {
     grid-template-columns: minmax(0, 1fr);
@@ -2319,16 +2279,15 @@ html:not(.js) .process-step::after {
     min-height: auto;
   }
 
-  .scroll-cue {
-    display: none;
-  }
-
   .trust-content {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 
-  .trust-item {
-    border-left: 0 !important;
+  .trust-item + .trust-item {
+    padding-top: 30px;
+    border-left: 0;
+    border-top: 1px solid var(--line);
   }
 
   .process-steps {
@@ -2374,11 +2333,6 @@ html:not(.js) .process-step::after {
 @media (max-width: 460px) {
   .site-logo {
     width: 150px;
-  }
-
-  .trust-content {
-    grid-template-columns: 1fr;
-    gap: 22px;
   }
 
   .faq-item summary {
