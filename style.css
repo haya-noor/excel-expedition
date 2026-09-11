@@ -1,6 +1,12 @@
 :root {
   --teal: #069494;
   --teal-soft: #e6f5f5;
+  --teal-dark: #044f4f;
+  --teal-light: #c5e4e4;
+  --text-primary: #344f4f;
+  --text-light: #aad4d4;
+  --white: #ffffff;
+  --bg-light: #f8fbfb;
 }
 
 * {
@@ -16,10 +22,9 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  color: var(--teal);
-  background: #ffffff;
+  color: var(--text-primary);
+  background: var(--white);
   font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
 }
 
 .site-header {
@@ -96,26 +101,522 @@ body {
 main {
   flex: 1;
   width: 100%;
-  min-height: 580px;
+}
+
+.container {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section {
+  padding: 72px 24px;
+}
+
+section h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--teal-dark);
+  margin: 0 0 24px 0;
+  line-height: 1.3;
+}
+
+section h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--teal);
+  margin: 0 0 12px 0;
+}
+
+section p {
+  color: var(--text-primary);
+  line-height: 1.7;
+  margin: 0 0 16px 0;
+}
+
+.section-intro {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--teal);
+  margin-bottom: 16px;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, var(--teal-soft) 0%, var(--white) 100%);
   padding: 96px 24px;
   display: grid;
   place-items: center;
+  min-height: 580px;
 }
 
 .hero-content {
-  width: min(100%, 600px);
+  width: min(100%, 700px);
+  text-align: center;
 }
 
-.status {
-  display: inline-block;
-  padding: 9px 14px;
-  color: var(--teal);
-  background: var(--teal-soft);
-  border-radius: 999px;
-  font-size: 12px;
+.hero-content h1 {
+  font-size: 48px;
   font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  color: var(--teal-dark);
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--teal);
+  margin: 0 0 16px 0;
+}
+
+.hero-description {
+  font-size: 16px;
+  color: var(--text-primary);
+  margin: 0 0 32px 0;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Buttons */
+.btn {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 200ms ease;
+  text-transform: none;
+}
+
+.btn-primary {
+  background: var(--teal);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--teal-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgb(6 148 148 / 20%);
+}
+
+.btn-secondary {
+  background: var(--teal-soft);
+  color: var(--teal);
+  border: 2px solid var(--teal);
+}
+
+.btn-secondary:hover {
+  background: var(--teal);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* Trust Bar */
+.trust-bar {
+  background: var(--teal-dark);
+  padding: 32px 24px;
+  color: var(--white);
+}
+
+.trust-content {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* Value Proposition */
+.value-prop {
+  background: var(--white);
+}
+
+.value-prop .container {
+  text-align: center;
+}
+
+.value-prop p {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* About Section */
+.about-section {
+  background: var(--bg-light);
+}
+
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.approach-item {
+  background: var(--white);
+  padding: 28px;
+  border-radius: 8px;
+  border-left: 4px solid var(--teal);
+}
+
+.approach-item h3 {
+  font-size: 20px;
+}
+
+/* Services Grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.service-card {
+  background: var(--white);
+  padding: 28px;
+  border-radius: 8px;
+  border-top: 4px solid var(--teal);
+  transition: all 200ms ease;
+}
+
+.service-card:hover {
+  box-shadow: 0 8px 24px rgb(6 148 148 / 15%);
+  transform: translateY(-4px);
+}
+
+.service-card h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.service-card p {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+/* Services Section */
+.services-section {
+  background: var(--white);
+}
+
+.services-section > .container > p {
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
+}
+
+/* Why Choose Us */
+.why-choose-us {
+  background: var(--bg-light);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  margin-top: 32px;
+}
+
+.feature-item {
+  background: var(--white);
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgb(6 148 148 / 8%);
+}
+
+.feature-item h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.feature-item p {
+  font-size: 14px;
+}
+
+/* Industries Section */
+.industries-section {
+  background: var(--white);
+}
+
+.industries-section > .container > p {
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
+}
+
+.industries-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.industry-card {
+  background: var(--teal-soft);
+  padding: 24px;
+  border-radius: 8px;
+}
+
+.industry-card h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.industry-card p {
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.industry-note {
+  text-align: center;
+  color: var(--text-primary);
+  font-style: italic;
+}
+
+/* Process Section */
+.process-section {
+  background: var(--bg-light);
+}
+
+.process-section > .container > p {
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.process-step {
+  background: var(--white);
+  padding: 28px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.step-number {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background: var(--teal);
+  color: var(--white);
+  border-radius: 50%;
+  font-size: 22px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.process-step h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.process-step p {
+  font-size: 14px;
+  text-align: left;
+}
+
+/* FAQs Section */
+.faqs-section {
+  background: var(--white);
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 32px auto 0;
+}
+
+.faq-item {
+  background: var(--bg-light);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  padding: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--teal);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 200ms ease;
+}
+
+.faq-item summary:hover {
+  background: var(--teal-soft);
+}
+
+.faq-item p {
+  padding: 0 20px 20px 20px;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+/* Careers Section */
+.careers-section {
+  background: var(--bg-light);
+}
+
+.careers-section > .container > p:nth-of-type(2) {
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
+}
+
+.careers-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+  margin: 32px 0;
+}
+
+.why-join, .areas-hiring {
+  background: var(--white);
+  padding: 28px;
+  border-radius: 8px;
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefits-list li {
+  margin-bottom: 16px;
+  padding-left: 24px;
+  position: relative;
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.benefits-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.hiring-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.tag {
+  background: var(--teal-soft);
+  color: var(--teal);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.careers-cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+/* Technology Section */
+.technology-section {
+  background: var(--white);
+}
+
+.technology-section > .container > p:nth-of-type(2) {
+  text-align: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 32px;
+}
+
+.tech-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+  margin-top: 32px;
+}
+
+.tech-category h3 {
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+
+.tech-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-category li {
+  padding: 8px 0;
+  color: var(--text-primary);
+  font-size: 14px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.tech-category li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--teal);
+}
+
+/* Footer Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: var(--teal-light);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.footer-links a:hover {
+  color: var(--white);
 }
 
 .site-footer {
@@ -169,18 +670,6 @@ main {
   color: #ffffff;
   text-decoration: none;
 }
-@media (min-width: 701px) {
-  body {
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  main {
-    min-height: 0;
-  }
-}
-
-
 @media (max-width: 700px) {
   .header-inner {
     min-height: 72px;
@@ -200,9 +689,48 @@ main {
     font-size: 13px;
   }
 
-  main {
+  section {
+    padding: 48px 20px;
+  }
+
+  section h2 {
+    font-size: 28px;
+  }
+
+  .hero {
+    padding: 64px 20px;
     min-height: 500px;
-    padding: 72px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 32px;
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+  }
+
+  .hero-actions {
+    gap: 12px;
+  }
+
+  .btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .trust-content {
+    font-size: 13px;
+    gap: 16px;
+  }
+
+  .approach-grid,
+  .services-grid,
+  .industries-grid,
+  .features-grid,
+  .process-steps,
+  .tech-categories {
+    grid-template-columns: 1fr;
   }
 
   .footer-inner {
@@ -213,6 +741,14 @@ main {
 
   .footer-bottom {
     padding-inline: 20px;
+  }
+
+  .careers-cta {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
   }
 }
 
@@ -231,5 +767,21 @@ main {
 
   .main-nav a:first-child {
     display: none;
+  }
+
+  .hero-content h1 {
+    font-size: 24px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+
+  section h2 {
+    font-size: 22px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
   }
 }
