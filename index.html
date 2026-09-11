@@ -3,81 +3,289 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Excel Expedition — U.S. Accounting & Bookkeeping Services" />
-    <title>Excel Expedition — Professional U.S. Accounting & Bookkeeping</title>
-    <link rel="stylesheet" href="style.css?v=5" />
+    <meta name="description" content="Excel Expedition — professional U.S. bookkeeping, accounting, payroll, sales tax and financial reporting services." />
+    <meta name="theme-color" content="#069494" />
+    <title>Excel Expedition — Professional U.S. Accounting &amp; Bookkeeping</title>
+
+    <link rel="icon" href="logo.svg?v=9" type="image/svg+xml" />
+
+    <script>
+      /* Runs before first paint: sets the theme so there is no flash of the wrong
+         palette, and marks the document as scripted so reveal animations only
+         hide content when JS can bring it back. */
+      (function () {
+        document.documentElement.classList.add("js");
+        try {
+          var stored = localStorage.getItem("ee-theme");
+          var theme =
+            stored ||
+            (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+          document.documentElement.setAttribute("data-theme", theme);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css?v=8" />
+    <script src="app.js?v=3" defer></script>
   </head>
 
   <body>
-    <header class="site-header">
-      <div class="header-inner">
-        <a class="header-brand" href="#home" aria-label="Excel Expedition home">
-          <img class="site-logo" src="logo.svg?v=9" alt="Excel Expedition" />
-        </a>
+    <a class="skip-link" href="#home">Skip to content</a>
 
-        <nav class="main-nav" aria-label="Main navigation">
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#contact">Contact</a>
-        </nav>
+    <header class="site-header" id="siteHeader">
+      <div class="header-inner">
+        <div class="header-left">
+          <a class="header-brand" href="#home" aria-label="Excel Expedition home">
+            <svg class="site-logo" viewBox="10 0 1190 360" role="img" aria-label="Excel Expedition">
+              <g class="logo-mark" fill="none" stroke="currentColor" stroke-linecap="square">
+                <path class="logo-frame" pathLength="1" d="M44 222V24H270V336H155" stroke-width="7" />
+                <path class="logo-e" pathLength="1" d="M112 98V260M112 98H207M112 179H195M112 260H209" stroke-width="8" />
+              </g>
+              <g class="logo-word" font-family="Arial Narrow, Roboto Condensed, Arial, sans-serif" font-weight="300">
+                <text x="380" y="158" font-size="92" letter-spacing="34" textLength="440" lengthAdjust="spacingAndGlyphs">EXCEL</text>
+                <text x="380" y="280" font-size="88" letter-spacing="32" textLength="760" lengthAdjust="spacingAndGlyphs">EXPEDITION</text>
+              </g>
+            </svg>
+          </a>
+
+          <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#industries">Industries</a>
+            <a href="#process">Process</a>
+            <a href="#faqs">FAQs</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </div>
+
+        <div class="header-actions">
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            type="button"
+            aria-label="Switch colour theme"
+          >
+            <span class="theme-icon" aria-hidden="true">
+              <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.2 12H2M22 12h-2.2M6.5 6.5 5 5M19 19l-1.5-1.5M17.5 6.5 19 5M5 19l1.5-1.5"/></svg>
+              <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4a8.4 8.4 0 1 0 10.2 10.2Z"/></svg>
+            </span>
+          </button>
+
+          <button class="btn btn-primary btn-sm nav-cta" type="button">Get Started</button>
+
+          <button
+            class="nav-toggle"
+            id="navToggle"
+            type="button"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="mainNav"
+          >
+            <span class="nav-toggle-bars" aria-hidden="true"></span>
+          </button>
+        </div>
       </div>
+
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <ul class="ticker-list">
+            <li>Bookkeeping</li>
+            <li>Payroll</li>
+            <li>Sales Tax — 40+ States</li>
+            <li>Reconciliations</li>
+            <li>Accounts Payable</li>
+            <li>Accounts Receivable</li>
+            <li>Month-End Close</li>
+            <li>Financial Reporting</li>
+            <li>Cleanup &amp; Migration</li>
+            <li>Compliance</li>
+          </ul>
+          <ul class="ticker-list">
+            <li>Bookkeeping</li>
+            <li>Payroll</li>
+            <li>Sales Tax — 40+ States</li>
+            <li>Reconciliations</li>
+            <li>Accounts Payable</li>
+            <li>Accounts Receivable</li>
+            <li>Month-End Close</li>
+            <li>Financial Reporting</li>
+            <li>Cleanup &amp; Migration</li>
+            <li>Compliance</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
     </header>
 
     <main>
       <!-- Hero Section -->
       <section id="home" class="hero">
-        <div class="hero-content">
-          <h1>Your Trusted U.S. Accounting & Bookkeeping Partner</h1>
-          <p class="hero-subtitle">Accurate books. Smarter reporting. Better financial decisions.</p>
-          <p class="hero-description">Excel Expedition provides professional bookkeeping, accounting, payroll, sales tax, compliance, and financial reporting services to businesses across the United States.</p>
-          <div class="hero-actions">
-            <button class="btn btn-primary">Schedule a Consultation</button>
-            <button class="btn btn-secondary">Explore Our Services</button>
-          </div>
+        <div class="hero-bg" aria-hidden="true">
+          <span class="orb orb-1"></span>
+          <span class="orb orb-2"></span>
+          <span class="hero-grid"></span>
         </div>
+
+        <div class="hero-content">
+          <p class="eyebrow hero-eyebrow hero-in" style="--in: 1">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            10+ years of U.S. accounting expertise
+          </p>
+
+          <h1 class="hero-title">
+            Your Trusted U.S. Accounting &amp;
+            <span class="text-gradient">Bookkeeping Partner</span>
+          </h1>
+
+          <p class="hero-subtitle hero-in" style="--in: 9">
+            Accurate books. Smarter reporting. Better financial decisions.
+          </p>
+
+          <p class="hero-description hero-in" style="--in: 10">
+            Excel Expedition provides professional bookkeeping, accounting, payroll, sales tax,
+            compliance, and financial reporting services to businesses across the United States.
+          </p>
+
+          <div class="hero-actions hero-in" style="--in: 11">
+            <button class="btn btn-primary btn-lg" type="button">Schedule a Consultation</button>
+            <button class="btn btn-secondary btn-lg" type="button">Explore Our Services</button>
+          </div>
+
+        </div>
+
+        <a class="scroll-cue" href="#about" aria-label="Scroll to about section">
+          <span aria-hidden="true"></span>
+        </a>
       </section>
 
       <!-- Trust Bar -->
-      <section class="trust-bar">
+      <section class="trust-bar" aria-label="Key figures">
         <div class="trust-content">
-          <span>10+ Years Experience</span>
-          <span>60+ Clients Served</span>
-          <span>U.S. Accounting Expertise</span>
-          <span>Multi-State Sales Tax</span>
-          <span>Payroll & Compliance</span>
+          <div class="trust-item" data-reveal>
+            <span class="trust-figure" data-count="10" data-suffix="+">10+</span>
+            <span class="trust-label">Years Experience</span>
+          </div>
+          <div class="trust-item" data-reveal>
+            <span class="trust-figure" data-count="60" data-suffix="+">60+</span>
+            <span class="trust-label">Clients Served</span>
+          </div>
+          <div class="trust-item" data-reveal>
+            <span class="trust-figure" data-count="40" data-suffix="+">40+</span>
+            <span class="trust-label">States Sales Tax</span>
+          </div>
+          <div class="trust-item" data-reveal>
+            <span class="trust-figure trust-mark" aria-hidden="true">✓</span>
+            <span class="trust-label">U.S. Accounting Expertise</span>
+          </div>
+          <div class="trust-item" data-reveal>
+            <span class="trust-figure trust-mark" aria-hidden="true">✓</span>
+            <span class="trust-label">Payroll &amp; Compliance</span>
+          </div>
         </div>
       </section>
 
       <!-- Value Proposition -->
       <section class="value-prop">
-        <div class="container">
-          <h2>Your Business Deserves More Than Basic Bookkeeping</h2>
-          <p class="section-intro">Accounting isn't just about recording transactions. It's about having accurate information when you need it, understanding where your business stands, meeting your compliance obligations, and having the financial clarity to make better decisions.</p>
-          <p>At Excel Expedition, we combine hands-on accounting expertise with modern technology to provide businesses with reliable financial management and bookkeeping support. From day-to-day bookkeeping and complex reconciliations to payroll, sales tax, financial reporting, cleanup, and process improvement, we're here to keep your financial operations moving forward.</p>
-          <button class="btn btn-primary">Talk to an Accounting Expert</button>
+        <div class="container narrow center">
+          <p class="eyebrow" data-reveal>Why it matters</p>
+          <h2 data-reveal>Your Business Deserves More Than Basic Bookkeeping</h2>
+          <span class="rule" data-reveal aria-hidden="true"></span>
+          <p class="section-intro" data-reveal>
+            Accounting isn't just about recording transactions. It's about having accurate
+            information when you need it, understanding where your business stands, meeting your
+            compliance obligations, and having the financial clarity to make better decisions.
+          </p>
+          <p data-reveal>
+            At Excel Expedition, we combine hands-on accounting expertise with modern technology to
+            provide businesses with reliable financial management and bookkeeping support. From
+            day-to-day bookkeeping and complex reconciliations to payroll, sales tax, financial
+            reporting, cleanup, and process improvement, we're here to keep your financial
+            operations moving forward.
+          </p>
+          <div data-reveal>
+            <button class="btn btn-primary" type="button">Talk to an Accounting Expert</button>
+          </div>
         </div>
       </section>
 
       <!-- About Us -->
       <section id="about" class="about-section">
         <div class="container">
-          <h2>Accounting Expertise Built Around U.S. Businesses</h2>
-          <p>Excel Expedition is a U.S.-focused accounting and bookkeeping firm providing comprehensive financial support to businesses across different industries. Our expertise comes from more than 10 years of experience working with U.S. businesses, handling everything from routine bookkeeping to complex reconciliations, financial reporting, payroll, sales tax, compliance, data cleanup, and financial process improvement. We've worked with 60+ clients, helping businesses organize their books, streamline accounting procedures, improve reporting, and stay on top of their financial obligations.</p>
+          <div class="section-head center">
+            <p class="eyebrow" data-reveal>About us</p>
+            <h2 data-reveal>Accounting Expertise Built Around U.S. Businesses</h2>
+            <span class="rule" data-reveal aria-hidden="true"></span>
+            <p class="section-lead" data-reveal>
+              Excel Expedition is a U.S.-focused accounting and bookkeeping firm providing
+              comprehensive financial support to businesses across different industries. Our
+              expertise comes from more than 10 years of experience working with U.S. businesses,
+              handling everything from routine bookkeeping to complex reconciliations, financial
+              reporting, payroll, sales tax, compliance, data cleanup, and financial process
+              improvement. We've worked with 60+ clients, helping businesses organize their books,
+              streamline accounting procedures, improve reporting, and stay on top of their
+              financial obligations.
+            </p>
+          </div>
 
           <div class="approach-grid">
-            <div class="approach-item">
+            <div class="approach-card" data-reveal="left">
               <h3>Our Approach</h3>
-              <p><strong>Accurate</strong> — because your business decisions depend on reliable numbers.</p>
-              <p><strong>Proactive</strong> — because identifying an issue early is better than fixing it later.</p>
-              <p><strong>Organized</strong> — because clean financial records create better visibility.</p>
-              <p><strong>Compliant</strong> — because deadlines and regulatory requirements matter.</p>
-              <p><strong>Business-focused</strong> — because accounting should help you understand and improve your business, not simply record what already happened.</p>
+              <ul class="approach-list">
+                <li>
+                  <span class="approach-key">Accurate</span>
+                  <span class="approach-val">because your business decisions depend on reliable numbers.</span>
+                </li>
+                <li>
+                  <span class="approach-key">Proactive</span>
+                  <span class="approach-val">because identifying an issue early is better than fixing it later.</span>
+                </li>
+                <li>
+                  <span class="approach-key">Organized</span>
+                  <span class="approach-val">because clean financial records create better visibility.</span>
+                </li>
+                <li>
+                  <span class="approach-key">Compliant</span>
+                  <span class="approach-val">because deadlines and regulatory requirements matter.</span>
+                </li>
+                <li>
+                  <span class="approach-key">Business-focused</span>
+                  <span class="approach-val">because accounting should help you understand and improve your business, not simply record what already happened.</span>
+                </li>
+              </ul>
             </div>
-            <div class="approach-item">
+
+            <aside class="mission-card" data-reveal="right">
+              <span class="mission-quote" aria-hidden="true">&ldquo;</span>
               <h3>Our Mission</h3>
-              <p>To provide businesses with dependable accounting expertise that brings clarity, efficiency, and confidence to their financial operations.</p>
-            </div>
+              <p>
+                To provide businesses with dependable accounting expertise that brings clarity,
+                efficiency, and confidence to their financial operations.
+              </p>
+              <dl class="mission-stats">
+                <div>
+                  <dt data-count="10" data-suffix="+">10+</dt>
+                  <dd>Years</dd>
+                </div>
+                <div>
+                  <dt data-count="60" data-suffix="+">60+</dt>
+                  <dd>Clients</dd>
+                </div>
+                <div>
+                  <dt data-count="40" data-suffix="+">40+</dt>
+                  <dd>States</dd>
+                </div>
+              </dl>
+            </aside>
           </div>
         </div>
       </section>
@@ -85,58 +293,78 @@
       <!-- Services -->
       <section id="services" class="services-section">
         <div class="container">
-          <h2>Complete Accounting & Bookkeeping Solutions</h2>
-          <p>Whether you need ongoing bookkeeping, help cleaning up your books, payroll support, sales tax assistance, or comprehensive financial reporting, Excel Expedition provides solutions tailored to your business.</p>
+          <div class="section-head center">
+            <p class="eyebrow" data-reveal>What we do</p>
+            <h2 data-reveal>Complete Accounting &amp; Bookkeeping Solutions</h2>
+            <span class="rule" data-reveal aria-hidden="true"></span>
+            <p class="section-lead" data-reveal>
+              Whether you need ongoing bookkeeping, help cleaning up your books, payroll support,
+              sales tax assistance, or comprehensive financial reporting, Excel Expedition provides
+              solutions tailored to your business.
+            </p>
+          </div>
 
-          <div class="services-grid">
-            <div class="service-card">
+          <div class="services-grid" data-reveal-group>
+            <article class="service-card" data-reveal="scale">
+              <span class="service-index" aria-hidden="true">01</span>
               <h3>Regular Bookkeeping</h3>
               <p>Maintain accurate and organized financial records with consistent recording, categorization, and review of your business transactions.</p>
-            </div>
-            <div class="service-card">
+            </article>
+            <article class="service-card" data-reveal="scale">
+              <span class="service-index" aria-hidden="true">02</span>
               <h3>Invoicing</h3>
               <p>Keep your billing processes organized with accurate invoice management and properly recorded customer transactions.</p>
-            </div>
-            <div class="service-card">
+            </article>
+            <article class="service-card" data-reveal="scale">
+              <span class="service-index" aria-hidden="true">03</span>
               <h3>Accounts Receivable</h3>
               <p>Improve visibility over money owed to your business. We help maintain customer accounts, track receivables, and monitor outstanding balances.</p>
-            </div>
-            <div class="service-card">
+            </article>
+            <article class="service-card" data-reveal="scale">
+              <span class="service-index" aria-hidden="true">04</span>
               <h3>Accounts Payable</h3>
               <p>Stay organized with vendor bills, business expenses, and outgoing payments while ensuring transactions are properly recorded.</p>
-            </div>
-            <div class="service-card">
+            </article>
+            <article class="service-card" data-reveal="scale">
+              <span class="service-index" aria-hidden="true">05</span>
               <h3>Account Reconciliation</h3>
               <p>From routine reconciliations to complex reconciliation projects, we compare your accounting records with financial statements to identify discrepancies and maintain accurate books.</p>
-            </div>
-            <div class="service-card">
+            </article>
+            <article class="service-card" data-reveal="scale">
+              <span class="service-index" aria-hidden="true">06</span>
               <h3>Bookkeeping Cleanup</h3>
               <p>We identify discrepancies, correct errors, organize transactions, and bring your financial records back into shape.</p>
-            </div>
-            <div class="service-card">
+            </article>
+            <article class="service-card" data-reveal="scale">
+              <span class="service-index" aria-hidden="true">07</span>
               <h3>Payroll</h3>
               <p>We support recurring payroll processes, payroll setup, statutory deductions, and payroll-related compliance requirements.</p>
-            </div>
-            <div class="service-card">
+            </article>
+            <article class="service-card" data-reveal="scale">
+              <span class="service-index" aria-hidden="true">08</span>
               <h3>Month-End Closing</h3>
               <p>Keep your accounting cycle on track with month-end reconciliations, adjustments, reviews, and closing procedures.</p>
-            </div>
-            <div class="service-card">
+            </article>
+            <article class="service-card" data-reveal="scale">
+              <span class="service-index" aria-hidden="true">09</span>
               <h3>Financial Reporting</h3>
               <p>Get meaningful financial information through customized monthly reports and management reporting designed around your business needs.</p>
-            </div>
-            <div class="service-card">
-              <h3>Sales Tax & Compliance</h3>
+            </article>
+            <article class="service-card" data-reveal="scale">
+              <span class="service-index" aria-hidden="true">10</span>
+              <h3>Sales Tax &amp; Compliance</h3>
               <p>Multi-State Sales Tax Support Across 40+ States. We provide support with registrations, filings, nexus determination, compliance, notices, and ongoing compliance support.</p>
-            </div>
-            <div class="service-card">
-              <h3>Data Cleanup & Migration</h3>
+            </article>
+            <article class="service-card" data-reveal="scale">
+              <span class="service-index" aria-hidden="true">11</span>
+              <h3>Data Cleanup &amp; Migration</h3>
               <p>Moving to a new accounting system or dealing with years of disorganized financial data? We can help with data cleanup, restructuring, and accounting system migrations.</p>
-            </div>
-            <div class="service-card">
+            </article>
+            <article class="service-card" data-reveal="scale">
+              <span class="service-index" aria-hidden="true">12</span>
               <h3>Additional Services</h3>
-              <p>Chart of Accounts customization, Inventory Tracking, Depreciation Schedules, and Budgeting & Financial Modeling to support better planning and decision-making.</p>
-            </div>
+              <p>Chart of Accounts customization, Inventory Tracking, Depreciation Schedules, and Budgeting &amp; Financial Modeling to support better planning and decision-making.</p>
+            </article>
           </div>
         </div>
       </section>
@@ -144,39 +372,42 @@
       <!-- Why Choose Us -->
       <section class="why-choose-us">
         <div class="container">
-          <h2>Why Choose Us</h2>
-          <p class="section-intro">Experience That Goes Beyond Bookkeeping</p>
+          <div class="section-head center">
+            <p class="eyebrow" data-reveal>Why choose us</p>
+            <h2 data-reveal>Experience That Goes Beyond Bookkeeping</h2>
+            <span class="rule" data-reveal aria-hidden="true"></span>
+          </div>
 
-          <div class="features-grid">
-            <div class="feature-item">
+          <div class="features-grid" data-reveal-group>
+            <div class="feature-item" data-reveal>
               <h3>10+ Years of U.S. Accounting Experience</h3>
               <p>Our experience working with U.S. businesses gives us an understanding of the accounting, reporting, payroll, sales tax, and compliance requirements businesses face.</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal>
               <h3>60+ Clients Served</h3>
               <p>We've worked with businesses and individuals across different industries and accounting environments, giving us experience with a wide range of financial challenges.</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal>
               <h3>Complex Accounting Expertise</h3>
               <p>From basic bookkeeping to complex reconciliations, data cleanup, migrations, customized Charts of Accounts, and management reporting, we can handle more than routine transaction entry.</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal>
               <h3>Multi-State Sales Tax Knowledge</h3>
               <p>We have experience handling sales tax matters across 40+ states, including registrations, filings, nexus determination, notices, and compliance.</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal>
               <h3>Proactive Approach</h3>
               <p>We don't simply wait for problems to appear. We focus on identifying discrepancies, upcoming requirements, and potential issues before they become bigger problems.</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal>
               <h3>Detail-Oriented</h3>
               <p>Accounting requires precision. We prioritize careful review and accurate financial records.</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal>
               <h3>Technology-Driven</h3>
               <p>We work with leading accounting and business platforms, allowing us to integrate into your existing workflows and systems.</p>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" data-reveal>
               <h3>Customized Solutions</h3>
               <p>Every business operates differently. We tailor accounting processes, reporting, and services around your specific requirements.</p>
             </div>
@@ -185,178 +416,253 @@
       </section>
 
       <!-- Industries -->
-      <section class="industries-section">
+      <section id="industries" class="industries-section">
         <div class="container">
-          <h2>Industries We Serve</h2>
-          <p class="section-intro">Accounting Expertise Across Industries</p>
+          <div class="section-head center">
+            <p class="eyebrow" data-reveal>Industries</p>
+            <h2 data-reveal>Accounting Expertise Across Industries</h2>
+            <span class="rule" data-reveal aria-hidden="true"></span>
+          </div>
 
-          <div class="industries-grid">
-            <div class="industry-card">
+          <div class="industries-grid" data-reveal-group>
+            <article class="industry-card" data-reveal="scale">
+              <span class="industry-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1.2 12H7.2L6 8Z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+              </span>
               <h3>E-Commerce</h3>
               <p>Bookkeeping, payment integrations, sales tax, inventory tracking, AR/AP, and financial reporting for online businesses.</p>
-            </div>
-            <div class="industry-card">
+            </article>
+            <article class="industry-card" data-reveal="scale">
+              <span class="industry-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5.5A2.5 2.5 0 0 1 11.5 3h1A2.5 2.5 0 0 1 15 5.5V7"/><path d="M3 12.5h18"/></svg>
+              </span>
               <h3>Professional Services</h3>
               <p>Accounting support for consultants, agencies, freelancers, and service-based businesses.</p>
-            </div>
-            <div class="industry-card">
+            </article>
+            <article class="industry-card" data-reveal="scale">
+              <span class="industry-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m3.5 11 8.5-7 8.5 7"/><path d="M6 9.8V20h12V9.8"/><path d="M10 20v-5.2h4V20"/></svg>
+              </span>
               <h3>Real Estate</h3>
               <p>Bookkeeping and financial reporting for real estate professionals and property-related businesses.</p>
-            </div>
-            <div class="industry-card">
-              <h3>Technology & SaaS</h3>
+            </article>
+            <article class="industry-card" data-reveal="scale">
+              <span class="industry-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18.5a4.2 4.2 0 0 1 .6-8.36A5.6 5.6 0 0 1 18.2 10.6 3.7 3.7 0 0 1 17.6 18.5H7Z"/></svg>
+              </span>
+              <h3>Technology &amp; SaaS</h3>
               <p>Accounting support for technology companies, SaaS businesses, and growing startups.</p>
-            </div>
-            <div class="industry-card">
+            </article>
+            <article class="industry-card" data-reveal="scale">
+              <span class="industry-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5h7.2l8.3 8.3-7.2 7.2L4 11.7V4.5Z"/><circle cx="8.6" cy="9.1" r="1.3"/></svg>
+              </span>
               <h3>Retail</h3>
               <p>Sales, inventory, expenses, payables, receivables, and sales tax support.</p>
-            </div>
-            <div class="industry-card">
-              <h3>Construction & Contracting</h3>
+            </article>
+            <article class="industry-card" data-reveal="scale">
+              <span class="industry-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 17.5h17"/><path d="M6 17.5v-3.2a6 6 0 0 1 12 0v3.2"/><path d="M10 8.8V5.5h4v3.3"/></svg>
+              </span>
+              <h3>Construction &amp; Contracting</h3>
               <p>Accounting support for contractors and project-based businesses.</p>
-            </div>
-            <div class="industry-card">
+            </article>
+            <article class="industry-card" data-reveal="scale">
+              <span class="industry-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12.5h3.6l2-4.6 3.2 9.2 2.2-4.6H21"/></svg>
+              </span>
               <h3>Healthcare</h3>
               <p>Bookkeeping and financial management support for healthcare businesses and practices.</p>
-            </div>
-            <div class="industry-card">
-              <h3>Small & Growing Businesses</h3>
+            </article>
+            <article class="industry-card" data-reveal="scale">
+              <span class="industry-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17.5 5.5-5.6 3.3 3.3L20 7.6"/><path d="M15.2 7.6H20v4.8"/></svg>
+              </span>
+              <h3>Small &amp; Growing Businesses</h3>
               <p>Flexible outsourced accounting solutions for businesses that need professional expertise without the cost of building a large in-house accounting department.</p>
-            </div>
+            </article>
           </div>
-          <p class="industry-note"><strong>Don't see your industry?</strong> Our accounting solutions can be customized to your business model and financial requirements.</p>
+
+          <p class="industry-note" data-reveal>
+            <strong>Don't see your industry?</strong> Our accounting solutions can be customized to
+            your business model and financial requirements.
+          </p>
         </div>
       </section>
 
       <!-- Our Process -->
-      <section class="process-section">
+      <section id="process" class="process-section">
         <div class="container">
-          <h2>Our Process</h2>
-          <p class="section-intro">A Proactive Approach to Your Accounting</p>
-          <p>We make outsourcing your accounting simple, structured, and transparent.</p>
+          <div class="section-head center">
+            <p class="eyebrow" data-reveal>Our process</p>
+            <h2 data-reveal>A Proactive Approach to Your Accounting</h2>
+            <span class="rule" data-reveal aria-hidden="true"></span>
+            <p class="section-lead" data-reveal>
+              We make outsourcing your accounting simple, structured, and transparent.
+            </p>
+          </div>
 
-          <div class="process-steps">
-            <div class="process-step">
-              <div class="step-number">01</div>
+          <ol class="process-steps" data-reveal-group>
+            <li class="process-step" data-reveal>
+              <span class="step-number">01</span>
               <h3>Understand</h3>
               <p>We start by learning about your business, accounting setup, financial processes, software, and specific challenges.</p>
-            </div>
-            <div class="process-step">
-              <div class="step-number">02</div>
+            </li>
+            <li class="process-step" data-reveal>
+              <span class="step-number">02</span>
               <h3>Assess</h3>
               <p>We review your existing books and accounting processes to identify discrepancies, gaps, inefficiencies, and opportunities for improvement.</p>
-            </div>
-            <div class="process-step">
-              <div class="step-number">03</div>
+            </li>
+            <li class="process-step" data-reveal>
+              <span class="step-number">03</span>
               <h3>Plan</h3>
               <p>We develop an accounting workflow tailored to your business requirements, reporting needs, and compliance obligations.</p>
-            </div>
-            <div class="process-step">
-              <div class="step-number">04</div>
+            </li>
+            <li class="process-step" data-reveal>
+              <span class="step-number">04</span>
               <h3>Organize</h3>
               <p>We establish clean and consistent processes for bookkeeping, reconciliations, AP, AR, payroll, reporting, and other agreed services.</p>
-            </div>
-            <div class="process-step">
-              <div class="step-number">05</div>
+            </li>
+            <li class="process-step" data-reveal>
+              <span class="step-number">05</span>
               <h3>Manage</h3>
               <p>Our team handles your ongoing accounting requirements while maintaining accurate and organized records.</p>
-            </div>
-            <div class="process-step">
-              <div class="step-number">06</div>
+            </li>
+            <li class="process-step" data-reveal>
+              <span class="step-number">06</span>
               <h3>Review</h3>
               <p>We regularly review financial information, reconcile accounts, and identify issues that require attention.</p>
-            </div>
-            <div class="process-step">
-              <div class="step-number">07</div>
+            </li>
+            <li class="process-step" data-reveal>
+              <span class="step-number">07</span>
               <h3>Report</h3>
               <p>You receive timely financial reports and insights that help you understand your business performance.</p>
-            </div>
-            <div class="process-step">
-              <div class="step-number">08</div>
+            </li>
+            <li class="process-step" data-reveal>
+              <span class="step-number">08</span>
               <h3>Improve</h3>
               <p>As your business grows, we help streamline processes, improve reporting, and adapt your accounting workflow to your changing needs.</p>
-            </div>
-          </div>
+            </li>
+          </ol>
         </div>
       </section>
 
       <!-- FAQs -->
-      <section class="faqs-section">
+      <section id="faqs" class="faqs-section">
         <div class="container">
-          <h2>Frequently Asked Questions</h2>
+          <div class="section-head center">
+            <p class="eyebrow" data-reveal>FAQs</p>
+            <h2 data-reveal>Frequently Asked Questions</h2>
+            <span class="rule" data-reveal aria-hidden="true"></span>
+            <p class="section-lead" data-reveal>
+              Select a question to read the answer.
+            </p>
+          </div>
 
-          <div class="faq-list">
-            <details class="faq-item">
+          <div class="faq-list" data-reveal-group>
+            <details class="faq-item" name="faq" data-reveal>
               <summary>What accounting services does Excel Expedition provide?</summary>
-              <p>We provide bookkeeping, invoicing, accounts receivable, accounts payable, account reconciliation, bookkeeping cleanup, payroll, month-end closing, financial reporting, sales tax, compliance, data cleanup, accounting migrations, and other accounting support services.</p>
+              <div class="faq-body">
+                <p>We provide bookkeeping, invoicing, accounts receivable, accounts payable, account reconciliation, bookkeeping cleanup, payroll, month-end closing, financial reporting, sales tax, compliance, data cleanup, accounting migrations, and other accounting support services.</p>
+              </div>
             </details>
-            <details class="faq-item">
+            <details class="faq-item" name="faq" data-reveal>
               <summary>Do you specialize in U.S. accounting?</summary>
-              <p>Yes. Our expertise is focused on serving U.S. businesses, with 10+ years of experience working in the U.S. accounting environment.</p>
+              <div class="faq-body">
+                <p>Yes. Our expertise is focused on serving U.S. businesses, with 10+ years of experience working in the U.S. accounting environment.</p>
+              </div>
             </details>
-            <details class="faq-item">
+            <details class="faq-item" name="faq" data-reveal>
               <summary>Can you handle sales tax in multiple states?</summary>
-              <p>Yes. We have experience with sales tax matters across 40+ states, including registrations, filings, nexus determination, notices, and ongoing compliance.</p>
+              <div class="faq-body">
+                <p>Yes. We have experience with sales tax matters across 40+ states, including registrations, filings, nexus determination, notices, and ongoing compliance.</p>
+              </div>
             </details>
-            <details class="faq-item">
+            <details class="faq-item" name="faq" data-reveal>
               <summary>What is sales tax nexus?</summary>
-              <p>Sales tax nexus determines whether a business has sufficient connection with a state to create a sales tax collection obligation. We can help businesses assess their nexus requirements and manage related compliance matters.</p>
+              <div class="faq-body">
+                <p>Sales tax nexus determines whether a business has sufficient connection with a state to create a sales tax collection obligation. We can help businesses assess their nexus requirements and manage related compliance matters.</p>
+              </div>
             </details>
-            <details class="faq-item">
+            <details class="faq-item" name="faq" data-reveal>
               <summary>Can you help if my books are a mess?</summary>
-              <p>Yes. Bookkeeping cleanup and data cleanup are among our areas of expertise. We can review your records, identify discrepancies, correct issues, and organize your books.</p>
+              <div class="faq-body">
+                <p>Yes. Bookkeeping cleanup and data cleanup are among our areas of expertise. We can review your records, identify discrepancies, correct issues, and organize your books.</p>
+              </div>
             </details>
-            <details class="faq-item">
+            <details class="faq-item" name="faq" data-reveal>
               <summary>Can you migrate my accounting data?</summary>
-              <p>Yes. We have experience with accounting data migrations and can help businesses move and organize financial information when changing accounting systems.</p>
+              <div class="faq-body">
+                <p>Yes. We have experience with accounting data migrations and can help businesses move and organize financial information when changing accounting systems.</p>
+              </div>
             </details>
-            <details class="faq-item">
+            <details class="faq-item" name="faq" data-reveal>
               <summary>Do you provide payroll services?</summary>
-              <p>Yes. Our payroll support includes recurring pay runs, payroll setup, statutory deductions, and payroll-related compliance requirements.</p>
+              <div class="faq-body">
+                <p>Yes. Our payroll support includes recurring pay runs, payroll setup, statutory deductions, and payroll-related compliance requirements.</p>
+              </div>
             </details>
-            <details class="faq-item">
+            <details class="faq-item" name="faq" data-reveal>
               <summary>Can you customize my Chart of Accounts?</summary>
-              <p>Yes. We can review your current Chart of Accounts and customize it based on your business structure and reporting requirements.</p>
+              <div class="faq-body">
+                <p>Yes. We can review your current Chart of Accounts and customize it based on your business structure and reporting requirements.</p>
+              </div>
             </details>
-            <details class="faq-item">
+            <details class="faq-item" name="faq" data-reveal>
               <summary>What accounting software do you work with?</summary>
-              <p>We have experience with platforms including QuickBooks Online, QuickBooks Desktop, Xero, Bill.com, AppFolio, and other business and productivity platforms.</p>
+              <div class="faq-body">
+                <p>We have experience with platforms including QuickBooks Online, QuickBooks Desktop, Xero, Bill.com, AppFolio, and other business and productivity platforms.</p>
+              </div>
             </details>
-            <details class="faq-item">
+            <details class="faq-item" name="faq" data-reveal>
               <summary>Can you integrate accounting software with my e-commerce platform?</summary>
-              <p>Yes. We have experience with integrations such as QuickBooks Online with Amazon and BigCommerce, as well as Shopify, Stripe, and other platforms with accounting systems such as Xero.</p>
+              <div class="faq-body">
+                <p>Yes. We have experience with integrations such as QuickBooks Online with Amazon and BigCommerce, as well as Shopify, Stripe, and other platforms with accounting systems such as Xero.</p>
+              </div>
             </details>
-            <details class="faq-item">
+            <details class="faq-item" name="faq" data-reveal>
               <summary>Do you provide management reports?</summary>
-              <p>Yes. We can prepare customized monthly and management reports designed to provide useful insight into your business performance.</p>
+              <div class="faq-body">
+                <p>Yes. We can prepare customized monthly and management reports designed to provide useful insight into your business performance.</p>
+              </div>
             </details>
-            <details class="faq-item">
+            <details class="faq-item" name="faq" data-reveal>
               <summary>How do I get started?</summary>
-              <p>Contact Excel Expedition to discuss your business and accounting requirements. We'll review your needs and determine how we can support your financial operations.</p>
+              <div class="faq-body">
+                <p>Contact Excel Expedition to discuss your business and accounting requirements. We'll review your needs and determine how we can support your financial operations.</p>
+              </div>
             </details>
           </div>
         </div>
       </section>
 
       <!-- Careers -->
-      <section class="careers-section">
+      <section id="careers" class="careers-section">
         <div class="container">
-          <h2>Join Excel Expedition</h2>
-          <p class="section-intro">At Excel Expedition, we're building a team that values accuracy, accountability, continuous learning, and client success.</p>
-          <p>If you're passionate about accounting and enjoy solving financial problems, improving processes, and helping businesses succeed, we'd love to hear from you.</p>
+          <div class="section-head center">
+            <p class="eyebrow" data-reveal>Careers</p>
+            <h2 data-reveal>Join Excel Expedition</h2>
+            <span class="rule" data-reveal aria-hidden="true"></span>
+            <p class="section-lead" data-reveal>
+              At Excel Expedition, we're building a team that values accuracy, accountability,
+              continuous learning, and client success. If you're passionate about accounting and
+              enjoy solving financial problems, improving processes, and helping businesses succeed,
+              we'd love to hear from you.
+            </p>
+          </div>
 
           <div class="careers-content">
-            <div class="why-join">
+            <div class="why-join" data-reveal="left">
               <h3>Why Join Us?</h3>
               <ul class="benefits-list">
                 <li><strong>Professional Growth</strong> — Develop your accounting expertise while working with U.S. businesses across different industries.</li>
                 <li><strong>Real-World Experience</strong> — Gain exposure to bookkeeping, payroll, sales tax, reporting, reconciliations, and other areas of accounting.</li>
-                <li><strong>Technology & Innovation</strong> — Work with modern accounting platforms and financial technology.</li>
+                <li><strong>Technology &amp; Innovation</strong> — Work with modern accounting platforms and financial technology.</li>
                 <li><strong>Continuous Learning</strong> — Expand your knowledge by working with different business models, accounting systems, and financial challenges.</li>
               </ul>
             </div>
 
-            <div class="areas-hiring">
+            <div class="areas-hiring" data-reveal="right">
               <h3>Areas We Hire For</h3>
               <div class="hiring-tags">
                 <span class="tag">Accounting</span>
@@ -372,9 +678,9 @@
             </div>
           </div>
 
-          <div class="careers-cta">
-            <button class="btn btn-primary">View Open Positions</button>
-            <button class="btn btn-secondary">Submit Your Resume</button>
+          <div class="careers-cta" data-reveal>
+            <button class="btn btn-primary" type="button">View Open Positions</button>
+            <button class="btn btn-secondary" type="button">Submit Your Resume</button>
           </div>
         </div>
       </section>
@@ -382,12 +688,21 @@
       <!-- Technology -->
       <section class="technology-section">
         <div class="container">
-          <h2>Technology & Platforms</h2>
-          <p class="section-intro">Connected Systems. Better Accounting.</p>
-          <p>We work with the platforms businesses already rely on, helping streamline accounting processes and connect financial data across your business. From e-commerce integrations to payment platforms and accounting software, we help bring your financial data together so your books are easier to manage and your reporting is more reliable.</p>
+          <div class="section-head center">
+            <p class="eyebrow" data-reveal>Technology</p>
+            <h2 data-reveal>Connected Systems. Better Accounting.</h2>
+            <span class="rule" data-reveal aria-hidden="true"></span>
+            <p class="section-lead" data-reveal>
+              We work with the platforms businesses already rely on, helping streamline accounting
+              processes and connect financial data across your business. From e-commerce
+              integrations to payment platforms and accounting software, we help bring your
+              financial data together so your books are easier to manage and your reporting is more
+              reliable.
+            </p>
+          </div>
 
-          <div class="tech-categories">
-            <div class="tech-category">
+          <div class="tech-categories" data-reveal-group>
+            <div class="tech-category" data-reveal>
               <h3>Accounting</h3>
               <ul>
                 <li>QuickBooks Online</li>
@@ -395,8 +710,8 @@
                 <li>Xero</li>
               </ul>
             </div>
-            <div class="tech-category">
-              <h3>Payments & Operations</h3>
+            <div class="tech-category" data-reveal>
+              <h3>Payments &amp; Operations</h3>
               <ul>
                 <li>Bill.com</li>
                 <li>AppFolio</li>
@@ -404,8 +719,8 @@
                 <li>Podio</li>
               </ul>
             </div>
-            <div class="tech-category">
-              <h3>E-Commerce & Integrations</h3>
+            <div class="tech-category" data-reveal>
+              <h3>E-Commerce &amp; Integrations</h3>
               <ul>
                 <li>Amazon</li>
                 <li>BigCommerce</li>
@@ -413,14 +728,14 @@
                 <li>Stripe</li>
               </ul>
             </div>
-            <div class="tech-category">
+            <div class="tech-category" data-reveal>
               <h3>Sales Tax</h3>
               <ul>
                 <li>Avalara</li>
                 <li>TaxJar</li>
               </ul>
             </div>
-            <div class="tech-category">
+            <div class="tech-category" data-reveal>
               <h3>Productivity</h3>
               <ul>
                 <li>Microsoft Office</li>
@@ -430,13 +745,32 @@
           </div>
         </div>
       </section>
+
+      <!-- Closing CTA -->
+      <section class="cta-band">
+        <div class="container cta-inner">
+          <div class="cta-copy" data-reveal="left">
+            <h2>Ready for books you can rely on?</h2>
+            <p>
+              Schedule a consultation and we'll review your current setup, identify gaps, and
+              outline how we can support your financial operations.
+            </p>
+          </div>
+          <div class="cta-actions" data-reveal="right">
+            <button class="btn btn-light btn-lg" type="button">Schedule a Consultation</button>
+            <button class="btn btn-ghost btn-lg" type="button">Explore Our Services</button>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
       <div class="footer-inner">
-        <section id="contact">
+        <section id="contact" class="footer-brand-col">
           <h2>Excel Expedition</h2>
-          <p>Accounting information and services designed to help you move forward with confidence.</p>
+          <p>
+            Accounting information and services designed to help you move forward with confidence.
+          </p>
         </section>
 
         <section>
@@ -444,19 +778,30 @@
           <ul class="footer-links">
             <li><a href="#about">About Us</a></li>
             <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#industries">Industries</a></li>
+            <li><a href="#process">Our Process</a></li>
+            <li><a href="#faqs">FAQs</a></li>
+            <li><a href="#careers">Careers</a></li>
           </ul>
         </section>
 
         <section>
           <h2>Get Started</h2>
           <p>Ready to streamline your accounting? Contact us to schedule a consultation.</p>
+          <button class="btn btn-light btn-sm" type="button">Schedule a Consultation</button>
         </section>
+      </div>
+
+      <div class="footer-watermark" aria-hidden="true">
+        <span>Excel Expedition</span>
       </div>
 
       <div class="footer-bottom">
         <p>&copy; 2026 Excel Expedition</p>
-        <a href="#home">Back to top</a>
+        <a class="back-to-top" href="#home">
+          Back to top
+          <span aria-hidden="true">↑</span>
+        </a>
       </div>
     </footer>
   </body>
