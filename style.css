@@ -1083,49 +1083,6 @@ section[id] {
   font-size: 0.8125rem;
 }
 
-.scroll-cue {
-  position: absolute;
-  bottom: 26px;
-  left: 50%;
-  width: 26px;
-  height: 42px;
-  border: 2px solid var(--teal-300);
-  border-radius: var(--r-full);
-  transform: translateX(-50%);
-  transition: border-color 200ms var(--ease);
-}
-
-.scroll-cue:hover {
-  border-color: var(--teal-500);
-}
-
-.scroll-cue span {
-  position: absolute;
-  top: 8px;
-  left: 50%;
-  width: 4px;
-  height: 8px;
-  border-radius: var(--r-full);
-  background: var(--teal-500);
-  transform: translateX(-50%);
-  animation: cue 1.9s var(--ease) infinite;
-}
-
-@keyframes cue {
-  0%,
-  100% {
-    opacity: 0;
-    transform: translate(-50%, 0);
-  }
-  35% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 0;
-    transform: translate(-50%, 14px);
-  }
-}
-
 /* --------------------------------------------------------------------------
    Trust bar
    -------------------------------------------------------------------------- */
@@ -2343,10 +2300,6 @@ html:not(.js) .process-step::after {
 
   .hero {
     min-height: auto;
-  }
-
-  .scroll-cue {
-    display: none;
   }
 
   .trust-content {
