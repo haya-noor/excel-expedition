@@ -1088,37 +1088,46 @@ section[id] {
    -------------------------------------------------------------------------- */
 
 .trust-bar {
-  padding-block: clamp(36px, 4.6vw, 56px);
+  position: relative;
+  z-index: 2;
+  margin-top: clamp(-56px, -4vw, -36px);
+  padding-block: 0;
   padding-inline: var(--gutter);
-  background: var(--band-gradient);
-  color: var(--band-fg);
+  background: linear-gradient(to bottom, transparent clamp(36px, 4vw, 56px), var(--surface) 0);
 }
 
+/* A light card that overlaps the hero's lower edge, so the figures belong to
+   the hero instead of cutting the page with a full-width dark band. */
 .trust-content {
-  width: min(100%, 1200px);
+  width: min(100%, 1120px);
   margin: 0 auto;
+  padding: clamp(22px, 3vw, 32px) clamp(12px, 2vw, 24px);
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-xl);
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
 }
 
 .trust-item {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   padding-inline: 12px;
   text-align: center;
 }
 
 .trust-item + .trust-item {
-  border-left: 1px solid var(--band-line);
+  border-left: 1px solid var(--line);
 }
 
 .trust-figure {
-  color: var(--band-fg);
+  color: var(--teal-600);
   font-family: var(--font-display);
-  font-size: clamp(1.9rem, 1.3rem + 1.6vw, 2.7rem);
+  font-size: clamp(1.75rem, 1.2rem + 1.4vw, 2.4rem);
   font-weight: 600;
   line-height: 1;
   letter-spacing: -0.03em;
@@ -1126,14 +1135,14 @@ section[id] {
 }
 
 .trust-mark {
-  color: var(--band-accent);
+  color: var(--teal-400);
 }
 
 .trust-label {
-  color: var(--band-fg-dim);
+  color: var(--ink-600);
   font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   line-height: 1.4;
   text-transform: uppercase;
 }
