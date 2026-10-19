@@ -3,60 +3,6 @@
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ----------------------------------------------------------------------
-     Theme (light / dark)
-     The initial value is applied by an inline script in <head> so the page
-     never paints the wrong palette; this only handles switching.
-     ---------------------------------------------------------------------- */
-
-  var root = document.documentElement;
-  var themeToggle = document.getElementById("themeToggle");
-  var systemDark = window.matchMedia("(prefers-color-scheme: dark)");
-
-  function currentTheme() {
-    return root.getAttribute("data-theme") === "dark" ? "dark" : "light";
-  }
-
-  function applyTheme(theme, persist) {
-    root.setAttribute("data-theme", theme);
-
-    if (themeToggle) {
-      themeToggle.setAttribute(
-        "aria-label",
-        theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
-      );
-    }
-
-    var meta = document.querySelector('meta[name="theme-color"]');
-    if (meta) meta.setAttribute("content", theme === "dark" ? "#0b1212" : "#069494");
-
-    if (persist) {
-      try {
-        localStorage.setItem("ee-theme", theme);
-      } catch (e) {
-        /* storage unavailable — the choice just won't survive a reload */
-      }
-    }
-  }
-
-  applyTheme(currentTheme(), false);
-
-  if (themeToggle) {
-    themeToggle.addEventListener("click", function () {
-      applyTheme(currentTheme() === "dark" ? "light" : "dark", true);
-    });
-  }
-
-  // Follow the OS only while the visitor hasn't made an explicit choice.
-  systemDark.addEventListener("change", function (event) {
-    var stored = null;
-    try {
-      stored = localStorage.getItem("ee-theme");
-    } catch (e) {
-      /* ignore */
-    }
-    if (!stored) applyTheme(event.matches ? "dark" : "light", false);
-  });
 
   /* ----------------------------------------------------------------------
      Hero headline: wrap each word so it can rise out of its own clip box.

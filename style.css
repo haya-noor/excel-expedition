@@ -583,64 +583,6 @@ section[id] {
   }
 }
 
-/* Theme toggle ----------------------------------------------------------- */
-
-.theme-toggle {
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  border: 1px solid var(--line-strong);
-  border-radius: 50%;
-  background: transparent;
-  color: var(--ink-600);
-  cursor: pointer;
-  transition: color 220ms var(--ease), border-color 220ms var(--ease),
-    background-color 220ms var(--ease), transform 380ms var(--spring);
-}
-
-.theme-toggle:hover {
-  transform: rotate(18deg);
-  border-color: var(--teal-400);
-  background: var(--teal-50);
-  color: var(--teal-500);
-}
-
-.theme-icon {
-  position: relative;
-  display: block;
-  width: 19px;
-  height: 19px;
-}
-
-.theme-icon svg {
-  position: absolute;
-  inset: 0;
-  width: 19px;
-  height: 19px;
-  transition: opacity 300ms var(--ease), transform 420ms var(--spring);
-}
-
-.icon-sun {
-  opacity: 0;
-  transform: rotate(-70deg) scale(0.5);
-}
-
-.icon-moon {
-  opacity: 1;
-  transform: none;
-}
-
-[data-theme="dark"] .icon-sun {
-  opacity: 1;
-  transform: none;
-}
-
-[data-theme="dark"] .icon-moon {
-  opacity: 0;
-  transform: rotate(70deg) scale(0.5);
-}
 
 /* Hamburger -------------------------------------------------------------- */
 
@@ -859,6 +801,8 @@ section[id] {
   gap: clamp(32px, 5vw, 72px);
   align-items: center;
   width: min(100%, 1200px);
+  min-width: 0;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -907,7 +851,7 @@ section[id] {
   width: 40vw;
   max-width: 540px;
   aspect-ratio: 1;
-  background: radial-gradient(circle, rgb(217 173 92 / 24%), transparent 68%);
+  background: radial-gradient(circle, rgb(6 148 148 / 18%), transparent 68%);
   animation: float-b 22s var(--ease) infinite alternate;
 }
 
@@ -916,7 +860,7 @@ section[id] {
 }
 
 [data-theme="dark"] .orb-2 {
-  background: radial-gradient(circle, rgb(217 173 92 / 14%), transparent 68%);
+  background: radial-gradient(circle, rgb(43 179 177 / 18%), transparent 68%);
 }
 
 @keyframes float-a {
@@ -933,6 +877,7 @@ section[id] {
 
 .hero-content {
   width: min(100%, 640px);
+  min-width: 0;
   text-align: left;
 }
 
@@ -1026,6 +971,7 @@ section[id] {
 
 .hero-panel {
   position: relative;
+  min-width: 0;
   padding: clamp(26px, 2.6vw, 34px);
   border: 1px solid var(--line-strong);
   border-top: 3px solid var(--teal-500);
@@ -1083,58 +1029,23 @@ section[id] {
   font-size: 0.8125rem;
 }
 
-.scroll-cue {
-  position: absolute;
-  bottom: 26px;
-  left: 50%;
-  width: 26px;
-  height: 42px;
-  border: 2px solid var(--teal-300);
-  border-radius: var(--r-full);
-  transform: translateX(-50%);
-  transition: border-color 200ms var(--ease);
-}
-
-.scroll-cue:hover {
-  border-color: var(--teal-500);
-}
-
-.scroll-cue span {
-  position: absolute;
-  top: 8px;
-  left: 50%;
-  width: 4px;
-  height: 8px;
-  border-radius: var(--r-full);
-  background: var(--teal-500);
-  transform: translateX(-50%);
-  animation: cue 1.9s var(--ease) infinite;
-}
-
-@keyframes cue {
-  0%,
-  100% {
-    opacity: 0;
-    transform: translate(-50%, 0);
-  }
-  35% {
-    opacity: 1;
-  }
-  70% {
-    opacity: 0;
-    transform: translate(-50%, 14px);
-  }
-}
 
 /* --------------------------------------------------------------------------
    Trust bar
    -------------------------------------------------------------------------- */
 
 .trust-bar {
-  padding-block: clamp(36px, 4.6vw, 56px);
+  padding-block: clamp(26px, 3.4vw, 40px);
   padding-inline: var(--gutter);
-  background: var(--band-gradient);
-  color: var(--band-fg);
+  color: var(--teal-800);
+  border-block: 1px solid var(--line-strong);
+  background-color: var(--surface);
+  background-image:
+    linear-gradient(rgb(6 148 148 / 5%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(6 148 148 / 5%) 1px, transparent 1px),
+    radial-gradient(circle at 50% 0%, rgb(6 148 148 / 10%), transparent 58%);
+  background-position: -1px -1px, -1px -1px, center;
+  background-size: 56px 56px, 56px 56px, 100% 100%;
 }
 
 .trust-content {
@@ -1142,6 +1053,7 @@ section[id] {
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
+  align-items: stretch;
   gap: 20px;
 }
 
@@ -1149,17 +1061,19 @@ section[id] {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 6px;
+  min-height: 74px;
   padding-inline: 12px;
   text-align: center;
 }
 
 .trust-item + .trust-item {
-  border-left: 1px solid var(--band-line);
+  border-left: 1px solid var(--line-strong);
 }
 
 .trust-figure {
-  color: var(--band-fg);
+  color: var(--teal-800);
   font-family: var(--font-display);
   font-size: clamp(1.9rem, 1.3rem + 1.6vw, 2.7rem);
   font-weight: 600;
@@ -1169,11 +1083,11 @@ section[id] {
 }
 
 .trust-mark {
-  color: var(--band-accent);
+  color: var(--teal-500);
 }
 
 .trust-label {
-  color: var(--band-fg-dim);
+  color: var(--ink-600);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -2325,6 +2239,11 @@ html:not(.js) .process-step::after {
 
   .hero-content {
     width: 100%;
+    min-width: 0;
+  }
+
+  .hero-panel {
+    min-width: 0;
   }
 }
 
@@ -2345,8 +2264,30 @@ html:not(.js) .process-step::after {
     min-height: auto;
   }
 
-  .scroll-cue {
-    display: none;
+  .hero-inner {
+    width: calc(100vw - 40px);
+    max-width: calc(100vw - 40px);
+  }
+
+  .hero-content,
+  .hero-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-content h1,
+  .hero-description,
+  .hero-subtitle {
+    overflow-wrap: break-word;
+  }
+
+  .hero-eyebrow {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    font-size: 0.6875rem;
+    letter-spacing: 0.13em;
+    line-height: 1.5;
   }
 
   .trust-content {
@@ -2454,4 +2395,10 @@ html:not(.js) .process-step::after {
   .logo-word {
     opacity: 1;
   }
+}
+
+.hero-eyebrow-text {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
