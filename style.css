@@ -2079,6 +2079,39 @@ html:not(.js) .process-step::after {
   transform: none;
 }
 
+/* Footer signature: the ledger line draws first, then the large wordmark is
+   uncovered once. The header logo remains completely independent. */
+.js .footer-watermark[data-reveal="footer-signature"] {
+  opacity: 1;
+  transform: none;
+}
+
+.js .footer-watermark[data-reveal="footer-signature"]::before {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 720ms var(--ease-out);
+}
+
+.js .footer-watermark[data-reveal="footer-signature"] span {
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  transform: translateY(14px);
+  transition:
+    clip-path 1050ms var(--ease-out) 180ms,
+    opacity 240ms var(--ease) 180ms,
+    transform 720ms var(--ease-out) 180ms;
+}
+
+.js .footer-watermark[data-reveal="footer-signature"].is-visible::before {
+  transform: scaleX(1);
+}
+
+.js .footer-watermark[data-reveal="footer-signature"].is-visible span {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+  transform: none;
+}
+
 /* --------------------------------------------------------------------------
    Card spotlight
    A soft highlight that tracks the pointer. --mx/--my are written by app.js
@@ -2384,6 +2417,16 @@ html:not(.js) .process-step::after {
 
   .js [data-reveal] {
     opacity: 1;
+    transform: none;
+  }
+
+  .js .footer-watermark[data-reveal="footer-signature"]::before {
+    transform: scaleX(1);
+  }
+
+  .js .footer-watermark[data-reveal="footer-signature"] span {
+    opacity: 1;
+    clip-path: none;
     transform: none;
   }
 
